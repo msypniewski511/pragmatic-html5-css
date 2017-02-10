@@ -2,7 +2,18 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
     <title>Pragmatic HTML5 CSS3</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+  <![endif]-->
   </head>
   <body>
     <header id="site_header">
@@ -29,7 +40,7 @@
         </header>
         <aside>
           <p>
-            &quot;Never give someone a chance to say no when selling your product.&quot;<br />
+            &quot;Aside Are Not Page Sidebars!!!&quot;<br />
             &quot;The aside is designed to show content related to an article. It's good place to show related links, a glossary, or a pullout quote.&quot;
           </p>
         </aside>
@@ -48,9 +59,9 @@
 
     <!-- Sekcja boczna -->
     <section id="site_bar">
-      <h3>Aside Are Not Page Sidebars!!!</h3>
+      <h3>Page Sidebars!!!</h3>
       <nav>
-        <h3>Archives</h3>
+        <h3>Archives and another sites</h3>
         <ul>
           <li><a href="">Februar 2017</a></li>
           <li><a href="">Februar 2017</a></li>
@@ -65,6 +76,17 @@
         </ul>
       </nav>
     </section><!-- End of sidebar -->
+
+    <!-- simple meter example -->
+    <section id="pledge">
+      <header>
+        <h3>Our Fundraising Goal</h3>
+      </header>
+      <meter title="USD" id="pledge_goal" value="2500" min="0" max="5000" >
+        $2500.00
+      </meter>
+      <p>Help us reach our goal of $5000!</p>
+    </section>
 
     <!-- Main site footer -->
     <footer id="site_footer">

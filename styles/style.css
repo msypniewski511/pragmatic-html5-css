@@ -1,0 +1,60 @@
+body {
+	width: 960px;
+	margin: 15px auto;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+}
+p {
+	margin: 0 0 20px 0;
+}
+
+p, li {
+	line-height: 20px;
+}
+
+/* Definition of header's width */
+header#site_header {
+	width: 100%;
+}
+
+/* Transform the bulleted lists into horizontal navigation bars */
+header#site_header nav ul, #site_footer nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#site_header nav ul li, footer#site_footer nav ul li {
+	padding: 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+/* Float left the post section */
+section#posts {
+	float: left;
+	width: 74%;
+}
+/* Float the callout inside the article */
+section#posts aside {
+	float: right;
+	width: 35%;
+	margin-left: 5%;
+	font-size: 20px;
+	line-height: 40px;
+}
+/* Float sidebar and give it width */
+section#site_bar {
+	float: left;
+	width: 25%;
+}
+
+/* clear floats on the footer to sits it at bottom of the page */
+footer#site_footer {
+	clear: both;
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+section#pledge {
+	width: 25%;
+	float: left;
+}
