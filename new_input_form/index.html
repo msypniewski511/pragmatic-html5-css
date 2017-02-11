@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3 Describing Data with New Input Fields</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Describing Data with New Input Fields</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="/">Latest Post</a></li>
+          <li><a href="archives">Archives</a></li>
+          <li><a href="contributors">Contributors</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Setting Up the Basic Form</h2>
+        </header>
+        <p>
+          Let’s create a basic HTML form that does a POST request. Since there’s nothing special about the name field, we’ll use the trusty text field.
+        </p>
+        <p>
+          <a href="form.html">Basic Form</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Creating a Slider Using Range</h2>
+        </header>
+        <p>
+          Sliders are commonly used to let users decrease or increase a numerical 
+          value and could be a great way to quickly allow managers to both 
+          visualize and modify the priority of the project. You implement a slider 
+          with the range type.
+        </p>
+        <p>
+          <a href="form_slider.html">Basic Form</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Handling Numbers with Spinboxes</h2>
+        </header>
+        <p>
+          We use numbers a lot, and although typing numbers is fairly simple, 
+          spinboxes can make making minor adjustments easier. A spinbox is a 
+          control with arrows that increment or decrement the value in the box. 
+          Let’s use the spinbox for estimated hours. That way, the hours can be
+          easily adjusted.
+        </p>
+        <p>
+        The spinbox also allows typing by default, and like range sliders, we
+        can set minimum and maximum values. However, those minimum and
+        maximum ranges won’t be applied to any value you type into the field.
+        Also notice that you can control the size of the increment step by giving
+        a value to the step parameter. It defaults to 1 but can be any numerical
+        value.
+       </p>
+        <p>
+          <a href="form_spinbox.html">Spinbox</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Dates</h2>
+        </header>
+        <p>
+          Recording the start date of the project is pretty important, and we want 
+          to make that as easy as possible. The date input type is a perfect fit 
+          here.
+        </p>
+        <p>
+          <a href="form_date.html">Data</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Email</h2>
+        </header>
+        <p>
+          The HTML5 specification says that the email input type is designed to 
+          hold either a single email address or an email address list, so that’s the 
+          perfect candidate for our email field.
+        </p>
+        <p>
+          Mobile devices get the most benefit from this type of form field, because 
+          the virtual keyboard layouts change to make entering email addresses 
+          easier.
+        </p>
+        <p>
+          <a href="form_email.html">Email</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>URL</h2>
+        </header>
+        <p>
+          There’s a field type designed to handle URLs too. This one is especially 
+          nice if your visitor uses an iPhone, because it displays a much different 
+          keyboard layout, displaying helper buttons for quickly entering web 
+          addresses, similar to the keyboard displayed when entering a URL into 
+          Mobile Safari’s address bar. Adding the staging URL field is as simple 
+          as adding this code:
+        </p>
+        <p>
+          <a href="form_url.html">Url</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Color</h2>
+        </header>
+        <p>
+          Finally, we need to provide a way to enter a color code, and we’ll use 
+          the color type for that.
+        </p>
+        <p>
+          <a href="form_color.html">Color</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Providing Hints with Placeholder Text</h2>
+        </header>
+        <p>
+          Placeholder text provides users with instructions on how they should fill in the fields.
+        </p>
+        <p>
+          <a href="sign_up.html">Color</a>
+        </p>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <h3>Page Sidebars!!!</h3>
+      <nav>
+        <h3>Archives and another sites</h3>
+        <ul>
+          <li><a href="../popups_with_custom_data/index.html">Popups with custom data</a></li>
+          <li><a href="../new_input_form/index.html">Describing Data with New Input Fields</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutoril</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

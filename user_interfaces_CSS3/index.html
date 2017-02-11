@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <title>Making Better User Interfaces with CSS3</title>
+    <script type="text/javascript"
+      charset="utf-8"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+    </script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Making Better User Interfaces with CSS3</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="archives">Archives</a></li>
+          <li><a href="contributors">Contributors</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>CSS features</h2>
+        </header>
+        <p>
+        :nth-of-type [ p:nth-of-type(2n+1){color: red;} ]<br />
+        Finds all n elements of a certain type.</p>
+        <p>:first-child [ p:first-child{color:blue;} ]<br />
+        Finds the first child element.</p>
+        <p>
+        :nth-child [ p:nth-child(2n+1){color: red;} ]<br />
+        Finds a specific child element counting forward.</p>
+        <p>:last-child [ p:last-child{color:blue;} ]<br />
+        Finds the last child element.</p>
+        <p>:nth-last-child [ p:nth-last-child(2){color: red;} ]<br />
+        Finds a specific child element counting backward.</p>
+        <p>:first-of-type [ p:first-of-type{color:blue;} ]<br />
+        Finds the first element of the given type.</p>
+        <p>:last-of-type [ p:last-of-type{color:blue;} ]<br />
+        <p>Finds the last element of the given type.<br />
+        <p>Column support [ #content{ column-count: 2; column-gap: 20px; column-rule: 1px solid #ddccb5; } ]<br />
+        Divides a content area into multiple columns.</p>
+        <p>:after [ span.weight:after { content: "lbs"; color: #bbb; } ]<br />
+        Used with content to insert content after the specified element.</p>
+        <p>Media Queries [ media="only all and (max-width: 480)" ]<br />
+        Apply styles based on device settings.</p>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Styling Tables with Pseudoclasses</h2>
+        </header>
+        <p>
+          A pseudoclass in CSS is a way to select elements based on information
+          that lies outside the document or information that can’t be expressed 
+          using normal selectors. You’ve probably used pseudoclasses like <strong>:hover</strong>
+          before to change the color of a link when the user hovers over it with 
+          their mouse pointer. CSS3 has several new pseudoclasses that make 
+          locating elements much easier.
+        </p>
+        <p>
+          <h3><strong>Basic table</strong></h3>
+          <a href="table.html"><strong>Basic table</strong></a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2></h2>
+        </header>
+        <p>
+          
+       </p>
+        <p>
+          <a href="form_spinbox.html">Spinbox</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2></h2>
+        </header>
+        <p>
+          
+        </p>
+        <p>
+          <a href="form_date.html">Data</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2></h2>
+        </header>
+        <p>
+          
+        </p>
+        <p>
+          <a href="form_email.html">Email</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2></h2>
+        </header>
+        <p>
+          
+        </p>
+        <p>
+          <a href="form_url.html">Url</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2></h2>
+        </header>
+        <p>
+          
+        </p>
+        <p>
+          <a href="form_color.html">Color</a>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2></h2>
+        </header>
+        <p>
+          
+        </p>
+        <p>
+          <a href="sign_up.html"></a>
+        </p>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <h3>Page Sidebars!!!</h3>
+      <nav>
+        <h3>Archives and another sites</h3>
+        <ul>
+          <li><a href="popups_with_custom_data/index.html">Popups with custom data</a></li>
+          <li><a href="new_input_form/index.html">Describing Data with New Input Fields</a></li>
+          <li><a href="profile/show.html">In-Place Editing with contenteditable<br />
+          Musze tu wrocic z znajomoscia jquery</a></li>
+          <li><a href="user_interfaces_CSS3/index.html">Making Better User Interfaces with CSS3</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutoril</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

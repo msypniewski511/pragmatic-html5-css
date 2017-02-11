@@ -1,0 +1,97 @@
+
+<html>
+  <head>
+    <meta charset="UTF8">
+    <title>Popups with custom data</title>
+    
+    <link href="../styles/style.css" type="text/css" rel="stylesheet">
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script>
+      $(function(){
+$(".popup" ).click(function(event){
+event.preventDefault();
+var href = $(this).attr("href" );
+var width = $(this).attr("data-width" );
+var height = $(this).attr("data-height" );
+var popup = window.open (href,"popup" ,
+"height=" + height +",width=" + width + "" );
+});
+});
+    </script>
+  </head>
+
+  <body>
+    <header id="site_header">
+      <h1>Creating Pop-up Windows with Custom Data Attributes</h1>
+      <nav>
+        <ul>
+          <li><a href="example1.html">Popups</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="posts">
+      <article class="post">
+        <!-- Example 1 -->
+        <header>
+          <h3>Separating Behavior from Content, or Why onclick Is Bad</h3>
+        </header>
+        <p>
+          <a href='#' onclick="window.open('index.html', 'MsgWindow', 'width=300, height=300');" >Holiday pay</a>
+        </p>
+      </article><!-- End example 1 -->
+      <article class="post">
+        <header>
+          <h3>Improve Accessibility</h3>
+        </header>
+        <p>
+          The link destination isn’t set! If JavaScript is disabled, the link won’t 
+          take the user to the page. That’s a huge problem we need to address 
+          immediately. Do not ever omit the href attribute or give it a value like 
+          this under any circumstances. Give it the address of the resource that
+          would normally pop up.
+        </p>
+        <a href='../index.html'
+        onclick="window.open(this.href, 'MsgWindow', 'width=300,height=300);" >Holiday pay</a>
+      </article>
+      <article class="post">
+        <header>
+          <h3>Abolish the onclick</h3>
+        </header>
+        <p>
+          Keep the behavior separate from the content, just like you keep the 
+          presentation information separate by using linked style sheets. Using 
+          onclick is easy at first, but imagine a page with fifty links, and you’ll 
+          see how the onclick method gets out of hand. You’ll be repeating that 
+          JavaScript over and over again. And if you generate this code from
+          some server-side code, you’re just increasing the number of JavaScript
+          events and making the resulting HTML much bigger than it needs to be.<br />
+          Instead, give each of the anchors on the page a class that identifies them.
+        </p>
+        <a href="../index.html" class="popup">Holiday Pay</a>
+      </article>
+      <article class="post">
+        <header>
+          <h3>Custom Data Attributes to the Rescue!</h3>
+        </header>
+        <p>
+          Situations like this are common when building any JavaScript-enabled
+          application. As we’ve seen, storing the window’s desired height and 
+          width with the code is desirable, but the onclick approach has lots of 
+          drawbacks. What we can do instead is embed these attributes as attributes 
+          on the element. All we have to do is construct the link like this:
+        </p>
+        <a href="../index.html" data-width="600" 
+        data-height="400" 
+        title="Holiday Pay"
+        class="popup" >Holiday pay</a>
+      </article>
+    </section>
+    <footer id="site_footer">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Strona startowa.</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
