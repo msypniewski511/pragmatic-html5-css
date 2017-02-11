@@ -1,13 +1,4 @@
-@media only screen and (max-device-width: 480px) {
-body{
-width:460px;
-}
-section#sidebar, section#posts{
-float: none;
-width: 100%;
-}
-}
-
+/* Mainn style */
 body {
 	width: 960px;
 	margin: 15px auto;
@@ -24,7 +15,6 @@ p, li {
 /* Definition of header's width */
 header#site_header {
 	width: 100%;
-	background-color: #7697B8;
 }
 
 /* Transform the bulleted lists into horizontal navigation bars */
@@ -32,7 +22,6 @@ header#site_header nav ul, #site_footer nav ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	background-color: #4290DE;
 }
 #site_header nav ul li, footer#site_footer nav ul li {
 	padding: 0;
@@ -44,9 +33,6 @@ header#site_header nav ul, #site_footer nav ul {
 section#posts {
 	float: left;
 	width: 74%;
-}
-article.post header {
-	background-color: #87AFD6;
 }
 /* Float the callout inside the article */
 section#posts aside {
@@ -73,7 +59,29 @@ section#pledge {
 	width: 25%;
 	float: left;
 }
-code {
-	font-weight: bolder;
-	color: green;
+
+
+/* First, let’s get rid of the hideous default table border. */
+table{
+	width: 600px;
+	border-collapse: collapse;
+}
+th, td{
+	border: none;
+}
+/* We’ll also style the header a bit by giving it a black background with
+white text. */
+th{
+	background-color: #000;
+	color: #fff;
+}
+/* IMPOTANT in striping, without resorting to any scripting or extra class names on rows. */
+tr:nth-of-type(even){
+	background-color: #F3F3F3;
+}
+tr:nth-of-type(odd) {
+	background-color:#ddd;
+}
+td:nth-child(n+2) {
+	text-align: right;
 }

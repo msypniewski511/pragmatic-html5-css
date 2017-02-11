@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/table4.css" type="text/css">
+    <title>Making Better User Interfaces with CSS3 - Bolding the Last Row with :last-child</title>
+  </head>
+  <body>
+    <section>
+      <article>
+        <head>
+          <h2>Bolding the Last Row with :last-child</h2>
+        </head>
+        <p>
+        Applying a bottom margin to paragraphs so that they are evenly spaced 
+        on a page is a common practice among many web developers. This can 
+        sometimes lead to an extra bottom margin at the end of a group, and 
+        that might be undesirable. For example, if the paragraphs are sitting 
+        inside of a sidebar or callout box, we may want to remove the bot-tom 
+        margin from the last paragraph so that there’s not wasted space
+        between the bottom of the last paragraph and the border of the box. 
+        The <strong>last-child</strong> selector is the perfect tool for this. We can use it to remove
+        the margin from the last paragraph.<br />
+        p{ margin-bottom: 20px }<br />
+        #sidebar p:last-child{ margin-bottom: 0; }<br /><hr />
+        Let’s use this same technique to bold the contents of the last row.<br />
+        <code><strong>
+        &nbsp;tr:last-child{<br />
+        &nbsp;&nbsp;&nbsp;font-weight: bolder;<br />
+        &nbsp;}</strong></code></p>
+
+        <table id="first_table">
+          <tr class="first_table">
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr class="first_table">
+            <td>Coffee mug</td>
+            <td>$10.00</td>
+            <td>5</td>
+            <td>$50.00</td>
+          </tr>
+          <tr class="first_table">
+            <td>Polo shirt</td>
+            <td>$20.00</td>
+            <td>5</td>
+            <td>$100.00</td>
+          </tr>
+          <tr class="first_table">
+            <td>Red stapler</td>
+            <td>$9.00</td>
+            <td>4</td>
+            <td>$36.00</td>
+          </tr>
+          <tr class="first_table">
+            <td colspan="3">Subtotal</td>
+            <td>$186.00</td>
+          </tr>
+          <tr class="first_table">
+            <td colspan="3">Shipping</td>
+            <td>$12.00</td>
+          </tr>
+          <tr class="first_table">
+            <td colspan="3">Total Due</td>
+            <td>$198.00</td>
+          </tr>
+        </table>
+        <br />
+        <hr>
+        <p>
+        Let’s do the same thing with the last column of the table. This will help 
+        the line totals stand out too.<br />
+        <code>
+        &nbsp;td:last-child{<br />
+        &nbsp;&nbsp;&nbsp;font-weight: bolder;<br />
+        &nbsp;}<br />
+        </code>
+        </p>
+        <table class="second_table">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr>
+            <td>Coffee mug</td>
+            <td>$10.00</td>
+            <td>5</td>
+            <td>$50.00</td>
+          </tr>
+          <tr>
+            <td>Polo shirt</td>
+            <td>$20.00</td>
+            <td>5</td>
+            <td>$100.00</td>
+          </tr>
+          <tr>
+            <td>Red stapler</td>
+            <td>$9.00</td>
+            <td>4</td>
+            <td>$36.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Subtotal</td>
+            <td>$186.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Shipping</td>
+            <td>$12.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Total Due</td>
+            <td>$198.00</td>
+          </tr>
+        </table>
+        <br />
+        <hr />
+        <p>
+        Finally, we’ll make the total’s font size bigger by using last-child with 
+        descendant selectors. We’ll find the last column of the last row and 
+        style it with this:<br>
+        <code>
+        &nbsp;tr:last-child td:last-child{<br />
+        &nbsp;&nbsp;&nbsp;font-size:24px;<br />
+        &nbsp;}<br />
+        </code>
+        </p>
+        <table id="third_table">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr>
+            <td>Coffee mug</td>
+            <td>$10.00</td>
+            <td>5</td>
+            <td>$50.00</td>
+          </tr>
+          <tr>
+            <td>Polo shirt</td>
+            <td>$20.00</td>
+            <td>5</td>
+            <td>$100.00</td>
+          </tr>
+          <tr>
+            <td>Red stapler</td>
+            <td>$9.00</td>
+            <td>4</td>
+            <td>$36.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Subtotal</td>
+            <td>$186.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Shipping</td>
+            <td>$12.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Total Due</td>
+            <td>$198.00</td>
+          </tr>
+        </table>
+        <br /><hr />
+        <h3>And all together!</h3>
+        <table id="fourth_table">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr>
+            <td>Coffee mug</td>
+            <td>$10.00</td>
+            <td>5</td>
+            <td>$50.00</td>
+          </tr>
+          <tr>
+            <td>Polo shirt</td>
+            <td>$20.00</td>
+            <td>5</td>
+            <td>$100.00</td>
+          </tr>
+          <tr>
+            <td>Red stapler</td>
+            <td>$9.00</td>
+            <td>4</td>
+            <td>$36.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Subtotal</td>
+            <td>$186.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Shipping</td>
+            <td>$12.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Total Due</td>
+            <td>$198.00</td>
+          </tr>
+        </table>
+        <br /><hr />
+        <head>
+          <h2>Counting Backward with :nth-last-child</h2>
+        </head>
+        <p>
+        We’d like to highlight the shipping row of the table when there’s a
+        discounted shipping rate. We’ll use <strong>nth-last-child</strong> 
+        to quickly locate that row. Aligning Column Text with <strong>:nth-child</strong>. 
+        The <strong>nth-last-child</strong> selector works exactly the same way, 
+        except that it counts backward through the children, starting at the
+        last child first. This makes it easy to grab the second-to-last element in 
+        a group. It turns out we need to do just that with our invoice table.<br />
+        So, to find our shipping row, we’d use this code:<br />
+        <code>
+        &nbsp;tr:nth-last-child(2){<br />
+        &nbsp;&nbsp;&nbsp;color: green;<br>
+        &nbsp;}
+        </code><br />
+        Here, we’re just specifying a specific child, the second to the last.
+        There’s one last thing we should do with this table, though. Earlier, we
+        right-aligned all the columns except for the first column, and although
+        that looks fine for the rows of the table with the item descriptions and
+        prices, it makes the last three rows of the table look a little funny. Let’s
+        right-align the bottom three rows as well. We can do that by using <strong>
+        nth-last-child</strong> with a negative value for n and a positive value for a in our
+        formula, like this:<br />
+        <code>
+        &nbsp;tr:nth-last-child(-n+3) td{<br />
+        &nbsp;&nbsp;&nbsp;text-align: right;<br />
+        &nbsp;}
+        </code><br /></p>
+        <table id="fifth_table">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr>
+            <td>Coffee mug</td>
+            <td>$10.00</td>
+            <td>5</td>
+            <td>$50.00</td>
+          </tr>
+          <tr>
+            <td>Polo shirt</td>
+            <td>$20.00</td>
+            <td>5</td>
+            <td>$100.00</td>
+          </tr>
+          <tr>
+            <td>Red stapler</td>
+            <td>$9.00</td>
+            <td>4</td>
+            <td>$36.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Subtotal</td>
+            <td>$186.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Shipping</td>
+            <td>$12.00</td>
+          </tr>
+          <tr>
+            <td colspan="3">Total Due</td>
+            <td>$198.00</td>
+          </tr>
+        </table><br />
+        <p>You can think of this as a range selector...it’s using the offset of 3, and
+        since we’re using nth-last-child , it’s grabbing every element before the
+        offset. If you were using nth-child , this formula would grab every row up
+        to the offset.<p>
+        <br /><hr />
+      <a href="index.html">Back</a>
+    </article>
+  </section>
+  </body>
+</html>

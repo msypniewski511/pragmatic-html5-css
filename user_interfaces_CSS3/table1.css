@@ -1,0 +1,21 @@
+/* First, let’s get rid of the hideous default table border. */
+table{
+	width: 600px;
+	border-collapse: collapse;
+}
+th, td{
+	border: none;
+}
+/* We’ll also style the header a bit by giving it a black background with
+white text. */
+th{
+	background-color: #000;
+	color: #fff;
+}
+/* IMPOTANT in striping, without resorting to any scripting or extra class names on rows. */
+tr:nth-of-type(even){
+	background-color: #F3F3F3;
+}
+tr:nth-of-type(odd) {
+	background-color:#ddd;
+}

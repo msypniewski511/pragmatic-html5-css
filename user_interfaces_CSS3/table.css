@@ -1,0 +1,14 @@
+/* First, let’s get rid of the hideous default table border. */
+table{
+	width: 600px;
+	border-collapse: collapse;
+}
+th, td{
+	border: none;
+}
+/* We’ll also style the header a bit by giving it a black background with
+white text. */
+th{
+	background-color: #000;
+	color: #fff;
+}

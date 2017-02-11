@@ -42,29 +42,10 @@
           <h2>CSS features</h2>
         </header>
         <p>
-        :nth-of-type [ p:nth-of-type(2n+1){color: red;} ]<br />
-        Finds all n elements of a certain type.</p>
-        <p>:first-child [ p:first-child{color:blue;} ]<br />
-        Finds the first child element.</p>
-        <p>
-        :nth-child [ p:nth-child(2n+1){color: red;} ]<br />
-        Finds a specific child element counting forward.</p>
-        <p>:last-child [ p:last-child{color:blue;} ]<br />
-        Finds the last child element.</p>
-        <p>:nth-last-child [ p:nth-last-child(2){color: red;} ]<br />
-        Finds a specific child element counting backward.</p>
-        <p>:first-of-type [ p:first-of-type{color:blue;} ]<br />
-        Finds the first element of the given type.</p>
-        <p>:last-of-type [ p:last-of-type{color:blue;} ]<br />
-        <p>Finds the last element of the given type.<br />
-        <p>Column support [ #content{ column-count: 2; column-gap: 20px; column-rule: 1px solid #ddccb5; } ]<br />
-        Divides a content area into multiple columns.</p>
-        <p>:after [ span.weight:after { content: "lbs"; color: #bbb; } ]<br />
-        Used with content to insert content after the specified element.</p>
-        <p>Media Queries [ media="only all and (max-width: 480)" ]<br />
-        Apply styles based on device settings.</p>
+          <a href="skrot.html">Lists</a>
         </p>
       </article>
+      <hr />
       <article class="post">
         <header>
           <h2>Styling Tables with Pseudoclasses</h2>
@@ -78,76 +59,130 @@
           locating elements much easier.
         </p>
         <p>
-          <h3><strong>Basic table</strong></h3>
           <a href="table.html"><strong>Basic table</strong></a>
         </p>
+        <hr />
+        <p>
+          <h3>Striping Rows with :nth-of-type</h3>
+        </p>
+        <p>
+          Adding “zebra striping” to tables is something we’ve all seen. It’s useful 
+          because it gives users horizontal lines to follow.
+        </p>
+        <p>
+          The <stron>nth-of-type</stron> selector finds every nth element of a specific type using 
+          either a formula or keywords. CSS3 has even and odd keywords that support this exact situation.
+        </p>
+        <p>
+        tr:nth-of-type(even){<br />
+          background-color: #F3F3F3;<br />
+          }<br />
+        tr:nth-of-type(odd) {<br />
+        background-color:#ddd;<br />
+        }<br />
+        So, this selector says, “Find me every even table row and color it. Then
+        find every odd row and color that too.” That takes care of our zebra 
+        striping, without resorting to any scripting or extra class names on 
+        rows.</p>
+        <p><a href="table1.html">Striping Rows Table</a></p>
       </article>
+      <hr />
       <article class="post">
         <header>
-          <h2></h2>
+          <h2>Aligning Column Text with :nth-child</h2>
         </header>
         <p>
-          
+          By default, all of the columns in our invoice table are left-aligned. Let’s 
+          right-align every column except for the first column. This way, our price 
+          and quantity columns will be right-aligned and easier to read. To do
+          that, we can use nth-child , but first we have to learn how it works.
        </p>
         <p>
-          <a href="form_spinbox.html">Spinbox</a>
+          <a href="table3.html">Aligning Column Text with :nth-child</a>
         </p>
       </article>
+      <hr />
       <article class="post">
         <header>
-          <h2></h2>
+          <h2>Bolding the Last Row with :last-child</h2>
         </header>
         <p>
-          
+          The invoice is looking pretty good right now, but one of the managers 
+          would like the bottom row of the table to be bolder than the other rows 
+          so it stands out more. We can use last-child for that too, which grabs the 
+          last child in a group.
         </p>
         <p>
-          <a href="form_date.html">Data</a>
+          <a href="table4.html">:last-child</a>
         </p>
       </article>
+      <hr />
       <article class="post">
         <header>
-          <h2></h2>
+          <h2>Making Links Printable with :after and content</h2>
         </header>
         <p>
-          
+          CSS can style existing elements, but it can also inject content into a
+          document. There are a few cases where content generation with CSS 
+          makes sense, and the most obvious one is appending the URL of a 
+          hyperlink next to the link’s text when a user prints the page.
         </p>
         <p>
-          <a href="form_email.html">Email</a>
+          <a href="printable.html"><strong>:after and content</strong></a>
         </p>
       </article>
+      <hr />
       <article class="post">
         <header>
-          <h2></h2>
+          <h2>Creating Multicolumn Layouts</h2>
         </header>
         <p>
-          
+          The print industry has had columns for years, and web designers have 
+          looked at those publications with envy. Narrow columns make it easier 
+          for readers to read your content, and with displays getting wider, 
+          developers are looking for ways to preserve comfortable column widths. 
+          After all, nobody wants to follow multiple lines of text across the 
+          monitor any more than they want a line of text to flow across the 
+          whole page of a newspaper. There have been some pretty clever solutions
+          in the past ten years, but none of those solutions are as simple and 
+          easy as the method provided by the CSS3 specification.
         </p>
         <p>
-          <a href="form_url.html">Url</a>
+          <a href="multi_layout.html">Multicolumn Layouts</a>
         </p>
       </article>
+      <hr />
       <article class="post">
         <header>
-          <h2></h2>
+          <h2>Building Mobile Interfaces with Media Queries</h2>
         </header>
         <p>
-          
+          We’ve been able to define media-specific style sheets for quite a while,
+          but we’ve been limited to the type of output, as you saw in Making
+          Links Printable with :after and content,  when we defined our
+          print style sheet.
         </p>
         <p>
-          <a href="form_color.html">Color</a>
+          <a href="mobile_interfaces.html">Building Mobile Interfaces with Media Queries</a>
         </p>
       </article>
+      <hr />
       <article class="post">
         <header>
-          <h2></h2>
+          <h2>Improving Accessibility</h2>
         </header>
         <p>
-          
+          Many of the new elements in HTML5 help you more accurately describe
+          your content. This becomes more important when other programs start
+          interpreting your code. For example, some people use software called
+          screen readers to translate the graphical contents of the screen to text
+          that’s read aloud.
         </p>
         <p>
-          <a href="sign_up.html"></a>
+          <a href="accessibility.html">Accessibility</a>
         </p>
       </article>
+      <hr />
     </section><!-- Koniec sekcji glownej -->
 
     <!-- Sekcja boczna -->
@@ -161,8 +196,8 @@
           <li><a href="profile/show.html">In-Place Editing with contenteditable<br />
           Musze tu wrocic z znajomoscia jquery</a></li>
           <li><a href="user_interfaces_CSS3/index.html">Making Better User Interfaces with CSS3</a></li>
-          <li><a href="">Februar 2017</a></li>
-          <li><a href="">Februar 2017</a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
           <li><a href="">Februar 2017</a></li>
           <li><a href="">Februar 2017</a></li>
           <li><a href="">Februar 2017</a></li>
@@ -176,10 +211,17 @@
       <p>&copy; 2017 Maciej Sypniewski</p>
       <nav>
         <ul>
-          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutoril</a></li>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
           <li><a href="about">About</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
           <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
         </ul>
         </nav>
     </footer><!-- End of main footer -->

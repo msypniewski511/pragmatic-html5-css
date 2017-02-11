@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <title>Making Better User Interfaces with CSS3</title>
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Making Better User Interfaces with CSS3 </h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="archives">Archives</a></li>
+          <li><a href="contributors">Contributors</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Providing Navigation Hints with ARIA Roles</h2>
+        </header>
+        <p>
+          HTML5’s new role attribute lets us assign a “responsibility” to each ele-
+ment on your page. A screen reader can then very easily parse the page
+and categorize all of those responsibilities so that you can create a sim-
+ple index for the page. For example, it can find all the navigation roles
+on the page and present them to the user so they can quickly navigate
+around your application.
+These roles come from the WIA-ARIA specification 3 and have been in-
+corporated into the HTML5 specification. There are two specific classi-
+fications of roles that you can put to use right now: landmark roles and
+document roles.<br>
+These roles come from the WIA-ARIA specification 3 and have been in-
+corporated into the HTML5 specification. There are two specific classi-
+fications of roles that you can put to use right now: landmark roles and
+document roles.
+        </p>
+      </article>
+      <hr />
+      <article>
+        <article class="post">
+        <header>
+          <h3>Landmark Roles</h3>
+        </header>
+        <p>
+        Landmark roles identify “points of interest” on your site, such as the
+        banner, search area, or navigation that screen readers can quickly
+        identify.<br />
+        <ul>
+          <li>Role         Use</li>
+          <li>banner         Identifies the banner area of your page</li>
+          <li>search         Identifies the search area of your page</li>
+          <li>navigation         Identifies navigational elements on your page</li>
+          <li>main              Identifies where your page’s main content begins</li>
+          <li>contentinfo         Identifies where information about the content exists,</li>
+          <li>complementary         such as copyright information and publication date</li>
+          <li>application         Identifies content on a page that complements the</li>
+        </ul><br />
+
+        main content but is meaningful on its own
+        Identifies a region of a page that contains a web appli-
+        cation as opposed to a web document
+        We can apply a few of these roles to the AwesomeCo blog template we
+        worked on in Redefining a Blog Using Semantic Markup, on page 27.
+        For the overall header, let’s apply the banner role like this:<br />
+        <code>
+        < header id="page_header" role="banner"><br />
+        < h1>AwesomeCo Blog!</h1><br />
+        < /header><br />
+        </code><br />
+        All that’s needed is the addition of the <strong>role="banner"</strong> to the existing
+        header tag.<br />
+        We can identify our navigation the same way:<br />
+        <code>
+        < nav role="navigation"><br />
+        < ul><br />
+        < li>< a href="/">Latest Posts</a></li><br />
+        < li>< a href="/archives">Archives</ a></ li><br />
+        < li>< a href="/contributors">Contributors</ a></ li><br />
+        < li>< a href="/contact">Contact Us</ a></ li><br />
+        </ul><br />
+        </ nav></code><br />
+        The HTML5 specification says that some elements have default roles
+        and can’t be overridden. The nav element must have the role of naviga-
+        tion and technically doesn’t need to be specified. Screen readers aren’t
+        quite ready to accept that default yet, but many of them do understand
+        these ARIA roles.<br />
+
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

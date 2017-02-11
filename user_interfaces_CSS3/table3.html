@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/table3.css" type="text/css">
+    <title>Making Better User Interfaces with CSS3 - Aligning Column Text with :nth-child</title>
+    <script type="text/javascript"
+      charset="utf-8"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+    </script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <section>
+      <article>
+      	<head>
+          <h2>Aligning Column Text with :nth-child</h2>
+      	</head>
+      	<p>
+      	The nth-child selector looks for child elements of an element and, like 
+      	&nbsp;<strong>nth-of-type</strong> , can use keywords or a formula.
+      	The formula is <strong>an+b</strong> , where b is the offset, and a is a multiple.</p>
+      	<p>
+      	If we wanted to select all of the table rows, we could use this selector:<br />
+      	<strong>&nbsp;&nbsp;table tr:nth-child(n)</strong>
+      	We’re not using any multiple, nor are we using an offset.</p>
+      	<p>
+      	However, if we wanted to select all rows of the table except for the first
+      	row, which is the row containing the column headings, we would use
+      	this selector that uses an offset:<br />
+      	<strong>&nbsp;&nbsp;table tr:nth-child(n+2)</strong></p>
+      	<p>
+      	If we wanted to select every other row of our table, we’d use a multiple, or 2n.<br />
+      	<strong>&nbsp;&nbsp;table tr:nth-child(2n)</strong></p>
+      	<p>
+      	If you wanted every third row, you’d use 3n.<br />
+      	You can also use the offset so that you can start further down the table.
+      	This selector would find every other row, starting with the fourth row:<br />
+      	<strong>&nbsp;&nbsp;table tr:nth-child(2n+4)</strong></p>
+      	<p>So, we can align every column except the first one with this rule:<br />
+      	<strong>td:nth-child(n+2){<br />
+      	&nbsp;&nbsp;text-align: right;<br />
+      	}</strong><br /></p>
+      	<table >
+      	  <tr>
+		        <th>Item</th>
+		        <th>Price</th>
+		        <th>Quantity</th>
+		        <th>Total</th>
+	        </tr>
+	        <tr>
+		        <td>Coffee mug</td>
+		        <td>$10.00</td>
+		        <td>5</td>
+		        <td>$50.00</td>
+	        </tr>
+	        <tr>
+		        <td>Polo shirt</td>
+		        <td>$20.00</td>
+		        <td>5</td>
+		        <td>$100.00</td>
+	        </tr>
+          <tr>
+            <td>Red stapler</td>
+		        <td>$9.00</td>
+		        <td>4</td>
+		        <td>$36.00</td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">Subtotal</td>
+		        <td>$186.00</td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">Shipping</td>
+		        <td>$12.00</td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">Total Due</td>
+		        <td>$198.00</td>
+	        </tr>
+	      </table>
+	    <a href="index.html">Back</a>
+	  </article>
+	</section>
+  </body>
+</html>

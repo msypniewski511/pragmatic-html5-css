@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <title>Making Better User Interfaces with CSS3</title>
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Making Better User Interfaces with CSS3</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="archives">Archives</a></li>
+          <li><a href="contributors">Contributors</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Building Mobile Interfaces with Media Queries</h2>
+        </header>
+        <p>
+          We’ve been able to define media-specific style sheets for quite a while,
+          but we’ve been limited to the type of output, as you saw in Making
+          Links Printable with :after and content, on page 83, when we defined our
+          print style sheet. CSS3’s media queries 6 let us change the presentation
+          of a page based on the screen size our visitors use. Web developers
+          have done screen size detection for years using JavaScript to obtain
+          information about the user’s screen size. But we can start to do that
+          with style sheets alone. We can use media queries to determine the
+          following:<br />
+          <ul>
+            <li>Resolution</li>
+            <li>Orientation (portrait or landscape mode)</li>
+            <li>Device width and height</li>
+            <li>Width and height of the browser window</li>
+          </ul><br />
+          Because of this, media queries make it very easy for us to create alter- 
+          native style sheets for mobile users.<br />
+          Our current blog is a two-column layout, with a main content region 
+          and a sidebar. The easiest way to make this more readable on the 
+          iPhone is to remove the floating elements so that the sidebar falls be-neath 
+          the main content. That way, the reader won’t have to scroll side-ways 
+          on the device.<br />
+          To make this work, we’ll add this code to the bottom of the blog’s style
+          sheet:<br />
+          <code class="css">
+          &nbsp;&nbsp;@media only screen and (max-device-width: 480px) {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;body{<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:460px;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;section#sidebar, section#posts{<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float: none;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 100%;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;}</code><br />
+          You can think of the code we put within the media query braces as
+          its own style sheet, invoked when the conditions of the query are met.
+          In this case, we resize the body of the page and turn our two-column
+          layout into a single-column layout.
+          We could also use media queries when we link the style sheet, so we
+          can keep our mobile style sheet in a separate file, like this:<br />
+          <br />
+          <code>
+          < link rel="stylesheet" type="text/css" href="CSS/mobile.css" media="only<br /> 
+          screen and (max-device-width: 480px)">
+          </code><br />
+          With that, our blog immediately becomes more readable on the iPhone.
+          You can use this approach to build style sheets for other displays as
+          well, such as kiosks, tablets, and displays of various sizes so that your
+          content is readable in more places.<br />
+        </p>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

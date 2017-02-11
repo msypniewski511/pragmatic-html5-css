@@ -1,0 +1,132 @@
+/* Mainn style */
+body {
+	width: 960px;
+	margin: 15px auto;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+}
+p {
+	margin: 0 0 20px 0;
+}
+
+p, li {
+	line-height: 20px;
+}
+
+/* Definition of header's width */
+header#site_header {
+	width: 100%;
+}
+
+/* Transform the bulleted lists into horizontal navigation bars */
+header#site_header nav ul, #site_footer nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#site_header nav ul li, footer#site_footer nav ul li {
+	padding: 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+/* Float left the post section */
+section#posts {
+	float: left;
+	width: 74%;
+}
+/* Float the callout inside the article */
+section#posts aside {
+	float: right;
+	width: 35%;
+	margin-left: 5%;
+	font-size: 20px;
+	line-height: 40px;
+}
+/* Float sidebar and give it width */
+section#site_bar {
+	float: left;
+	width: 25%;
+}
+
+/* clear floats on the footer to sits it at bottom of the page */
+footer#site_footer {
+	clear: both;
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+section#pledge {
+	width: 25%;
+	float: left;
+}
+code {
+	font-weight: bolder;
+	font-size: 18px;
+	color: green;
+}
+
+/* First, let’s get rid of the hideous default table border. */
+table{
+	width: 600px;
+	border-collapse: collapse;
+}
+th, td{
+	border: none;
+}
+/* We’ll also style the header a bit by giving it a black background with
+white text. */
+th{
+	background-color: #000;
+	color: #fff;
+}
+/* IMPOTANT in striping, without resorting to any scripting or extra class names on rows. */
+tr:nth-of-type(even){
+	background-color: #F3F3F3;
+}
+tr:nth-of-type(odd) {
+	background-color:#ddd;
+}
+td:nth-child(n+2) {
+	text-align: right;
+}
+tr.first_table:last-child{
+	font-weight: bolder;
+}
+
+
+/* First, let’s get rid of the hideous default table border. */
+.second_table td:last-child {
+	font-weight: bolder;
+}
+
+#third_table tr:last-child td:last-child{
+	font-size:24px;
+}
+#fourth_table tr:last-child{
+	font-weight: bolder;
+}
+#fourth_table  td:last-child {
+	font-weight: bolder;
+}
+#fourth_table  tr:last-child td:last-child{
+	font-size:24px;
+}
+
+#fifth_table tr:last-child td:last-child{
+	font-size:24px;
+}
+#fifth_table tr:last-child{
+	font-weight: bolder;
+}
+#fifth_table  td:last-child {
+	font-weight: bolder;
+}
+#fifth_table  tr:last-child td:last-child{
+  font-size:24px;
+}
+#fifth_table tr:nth-last-child(2){
+  color: green;
+}
+#fifth_table tr:nth-last-child(-n+3) td{
+  text-align: right;
+} 

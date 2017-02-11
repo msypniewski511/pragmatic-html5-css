@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../styles/style_print.css" type="text/css">
+    <title>Making Better User Interfaces with CSS3</title>
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Making Better User Interfaces with CSS3</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="archives">Archives</a></li>
+          <li><a href="contributors">Contributors</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Making Links Printable with <strong>:after and content</strong></h2>
+        </header>
+        <p>
+        CSS can style existing elements, but it can also inject content into a
+        document. There are a few cases where content generation with CSS 
+        makes sense, and the most obvious one is appending the URL of a 
+        hyperlink next to the link’s text when a user prints the page. When 
+        you’re looking at a document on the screen, you can just hover over a 
+        link and see where it goes by looking at the status bar. However, when 
+        you look at a printout of a page, you have absolutely no idea where 
+        those links go.
+        </p>
+        <p>
+        <h3>The CSS</h3>
+        When we add a style sheet to a page, we can specify the media type that 
+        the styles apply to. Most of the time, we use the screen type. However, 
+        we can use the print type to define a style sheet that loads only when 
+        the page is printed (or when the user uses the print preview function).<br />
+        <code>
+        &nbsp;<link rel="stylesheet" href="print.css" type="text/css" media="print">
+        </code><br />
+        We can then create a print.css style sheet file with this simple rule:<br />
+        <code>
+        &nbsp;a:after {<br />
+        &nbsp;&nbsp;&nbsp;content: " (" attr(href) ") ";<br />
+        &nbsp;}</code>
+        <br />
+        This takes every link on the page and adds the value of the href value
+        inside parentheses after the link’s text.
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>
