@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tablice</title>
+    <link type="text/css" rel="stylesheet" href="../../styles/style_java.css">
+  </head>
+<!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Tablice javascript</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="/">Latest Post</a></li>
+          <li><a href="">Javascript</a></li>
+          <li><a href="">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Tworzenie tablic</h2>
+        </header>
+        <p>
+        <code class="script">
+          var days = ['Pn.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.', 'Ndz.'];<br />
+          var playList = [];<br />
+          var days = new Array('Pn.', 'Wt.', 'Śr.');<br />
+        </code>
+        W tablicach można przechowywać wartości różnego typu. Oznacza to, że w jednej
+        tablicy mogą znajdować się liczby, łańcuchy znaków i wartości logiczne:<br />
+        <code class="script">
+          var prefs = [1, 223, 'www.oreilly.com', false];
+          var authors = [ 'Ernest Hemingway',<br />
+          'Charlotte Bronte',<br />
+          'Dante Alighieri',<br />
+          'Emily Dickinson'<br />
+          ];<br />
+        </code>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Używanie elementów tablicy</h2>
+        </header>
+        <p>
+          Pozycję każdego elementu w tablicy określa niepowtarzalna liczba — indeks. Aby
+          uzyskać dostęp do wybranego elementu, należy podać jego indeks.
+          <code class="script">
+          var days = ['Pn.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.', 'Ndz.'];<br />
+          alert(days[0]);<br/>
+          </code>
+          Aby zmodyfikować element tablicy, należy przypisać mu nową wartość za pomocą
+          indeksu. Na przykład w celu umieszczenia nowej wartości w pierwszym elemen-
+          cie tablicy days należy użyć następującej instrukcji:<br />
+          <code class="script">
+            days[0] = 'Poniedziałek';<br />
+          </code>
+          Dlatego aby uzyskać dostęp do wartości ostatniego elementu listy,
+          można użyć pomysłowego kodu:<br />
+          <code class="script">
+          days[days.length-1]<br />
+          </code>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Dodawanie elementów do tablicy</h2>
+        </header>
+        <p>
+          <h3>Dodawanie elementów na koniec tablicy</h3>
+          Aby dodać element na koniec tablicy, można użyć notacji indeksowej i podać 
+          indeks o 1 większy od ostatniej pozycji. Przyjrzyj się tablicy properties :<br />
+          <code class="script">
+            var properties = ['red', '14px', 'Arial'];<br />
+          </code>
+          Na tym etapie tablica ma trzy elementy. Pamiętaj, że ostatni element ma indeks
+          o 1 mniejszy od liczby wszystkich wartości. W przykładowej tablicy dostęp do takiego
+          elementu zapewnia instrukcja <strong>properties[2]</strong>. 
+          Aby dodać nową wartość, należy użyć poniższej składni:<br />
+          <code class="script">
+            properties[3] = 'bold';<br />
+          </code>
+          Można zawsze dodać wartość na koniec tablicy przez 
+          podanie jako indeksu właściwości <strong>length</strong>. 
+          Ostatnią instrukcję można przekształcić w następujący sposób:<br />
+          <code class="script">
+            properties[properties.length] = 'bold';<br />
+          </code>
+          Można też użyć polecenia <code>push()</code>, które dodaje na koniec tablicy wartość podaną
+          w nawiasach. Polecenie <code>push()</code>, podobnie jak właściwość <strong>length</strong>, 
+          należy podać po nazwie tablicy i kropce. Oto następny sposób na dodanie elementu na koniec 
+          tablicy <strong>properties:</strong>
+          <code class="script">
+            properties.push('bold');<br />
+          </code>
+          Zaletą polecenia <code>push()</code> jest to, że umożliwia dodanie grupy elementów. Jeśli chcesz
+          wstawić na koniec tablicy properties trzy nowe wartości, możesz to zrobić w nastę-pujący sposób:<br />
+          <code class="script">
+            properties.push('bold', 'italic', 'underlined');
+          </code>
+          <h3>Dodawanie elementów na początek tablicy</h3>
+          Jeśli chcesz dodać element na początek tablicy, możesz użyć polecenia <code>unshift()</code>.
+          Poniższy kod dodaje wartość 'bold' na początek tablicy properties:<br/>
+          <code class="script">
+          var properties = ['red', '14px', 'Arial'];<br />
+          properties.unshift('bold');<br />
+          </code>
+          Po wykonaniu tego kodu tablica properties będzie zawierać cztery elementy:<br>
+          <strong>['bold', 'red', '14px', 'Arial']</strong>.
+          Polecenie <code>unshift()</code>, podobnie jak <code>push()</code>,
+          pozwala dodać kilka elementów:<br />
+          <code class="script">
+            properties.unshift('bold', 'italic', 'underlined');<br />
+          </code>
+          <hr>
+          Polecenia <code>push()</code> i <code>unshift()</code> zwracają wartość. Po wykonaniu zadania przekazują
+          nową liczbę elementów w tablicy:<br />
+          <code class="script">
+          var p = [0,1,2,3];<br />
+          var totalItems = p.push(4,5);<br />
+          </code>
+          Ten fragment przypisze do zmiennej totalItems wartość 6 , ponieważ w tablicy p
+          znajdzie się sześć elementów.
+        </p>
+      </article>
+      <article class="post">
+        <header><h2>Usuwanie elementów z tablicy</h2></header>
+        <p>
+          Do usuwania elementów z początku i końca tablicy służą polecenia <code>pop()</code> i 
+          <code>shift()</code>. Oba usuwają z tablicy jedną wartość, przy czym polecenie 
+          <code>pop()</code> z końca, a polecenie <code>shift()</code> — z początku.
+          Polecenia <code>pop()</code> i <code>shift()</code> , podobnie jak <code>push()</code> 
+          i <code>unshift()</code> , po zakończeniu działania zwracają dane —jest to wartość elementu 
+          usuniętego z tablicy. Dlatego poniższy kod usuwa wartość i zapisuje ją w zmiennej removedItem:<br />
+          <code class="script">
+          var p = [0,1,2,3];<br />
+          var removedItem = p.pop();<br />
+          </code>
+          Po zakończeniu działania kodu wartość zmiennej removedItem to 3, a tablica p zawiera liczby [0,1,2].
+        </p>
+      </article>
+     
+
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <nav>
+        <h3>Archives and another sites<br />Page Sidebars!!!</h3>
+        <ul>
+          <li><a href="sites/1.html">Pierwszy program w języku JavaScript</a></li>
+          <li><a href="sites/2.html">Dodawanie tekstu do stron</a></li>
+          <li><a href="sites/3.html">Dołączanie zewnętrznych plików JavaScript</a></li>
+          <li><a href="sites/4.html">Przykład — używanie zmiennych do tworzenia komunikatów</a></li>
+          <li><a href="sites/5.html">Przykład — pobieranie informacji</a></li>
+          <li><a href="sites/tablice.html">Tablice</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

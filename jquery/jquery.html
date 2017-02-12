@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/jquery.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3 - Wprowadzenie do biblioteki jQuery</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Wprowadzenie do biblioteki jQuery</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Javascript</a></li>
+          <li><a href="jquery.html">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Wprowadzenie do jQuery</h2>
+        </header>
+        <p>
+          <h3>Jak zdobyć jQuery?</h3>
+        Biblioteka jQuery to jedynie trochę kodu JavaScript umieszczonego w zewnętrznym
+        pliku. plik jQuery należy dołączyć do swojej strony. Jednak, ze względu na ogromną popularność jQuery, można to zrobić na kilka sposobów: można pobrać wersję biblioteki udostępnianą na serwerach firm Google, Microsoft lub na serwerze jQuery.com bądź też można skopiować plik biblioteki na własny komputer i umieścić go na witrynie. Pierwsza z metod polega na skorzystaniu z sieci dystrybucji treści (ang. content distribution network, w skrócie CDN) — czyli innej witryny, która przechowuje bibliotekę i przesyła ją do każdego, kto o to poprosi.</p>
+        <p>
+        <h3>Dołączanie pliku jQuery z serwera CDN</h3>
+        <code>
+          &lt;script src=&quot;http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js&quot;&gt;
+          &lt;/script&gt;<br />
+          &lt;script src="http://code.jquery.com/jquery-1.6.3.min.js"&gt;&lt;/script&gt;<br />
+          &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js">&lt;/script><br />
+          </code>
+          <h3>Pobieranie pliku jQuery</h3>
+          Wejdź na stronę http://docs.jquery.com/Downloading_jQuery.
+          <h3>Dodawanie jQuery do strony</h3>
+          Aby na przykład skorzystać z wersji dostęp-nej na serwerach Google, 
+          do sekcji nagłówka strony należy dodać poniższy znacz-nik 
+          <code>
+          &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js">&lt;/script><br />
+          </code>
+          Załóżmy na przykład, że dysponujesz plikiem jquery.js umieszczonym w katalogu js, w 
+          głównym katalogu serwera WWW. Aby go dodać do strony głównej witryny, powinieneś umieścić 
+          w jej sekcji nagłówka znacznik w następującej postaci:<br />
+          <code>
+            &lt;script src="katalog/jquery-numer.wersji.min.js">&lt;/script><br />
+          </code>
+          Po dołączeniu pliku jQuery do strony można już dodawać do niej własne skrypty, 
+          korzystające z zaawansowanych funkcji tej biblioteki. Następnym krokiem będzie 
+          dodanie kolejnej pary znaczników <code><scripts></scripts></code> zawierających nieco bardziej 
+          wymagający kod JavaScript:<br />
+          <code>
+          &lt;script src="js/jquery-1.6.3.min.js">&lt;/script><br />
+          &lt;script></code><br />
+          <code class="script">
+          $(document).ready(function() {<br />
+          // to jest miejsce na nasz kod<br />
+          });</code><br /><code>
+          &lt;script></code><br >
+          Wewnątrz drugiej pary znaczników <strong>&lt;scripts></strong> znajduje się cały kod, który chcemy 
+          umieścić na danej stronie WWW. Najprawdopodobniej jednak zastanawiasz się,
+          co oznacza zapis <code class="script">$(document).ready()</code>. Jest to wbudowana funkcja jQuery, która
+          spowoduje wykonanie przekazanego do niej kodu po zakończeniu pobierania całej strony WWW.<br />
+          I właśnie to zapewnia funkcja <code>$(document).ready()</code>: czeka na zakończenie pobierania całej 
+          zawartości dokumentu HTML i dopiero potem wykonuje wskazany kod JavaScript. Jeśli to wszystko wydaje 
+          się bardzo zagmatwane i trudne, wystarczy, byś zapamiętał, że zawsze powinieneś stosować funkcję 
+          <code>ready()</code> i umieszczać swój kod dokładnie pomiędzy<br /> 
+          <code>$(document).ready(function(){<br /> oraz zamykającą sekwencją znaków<br />
+          });</code><br /> Dodatkowo warto pamiętać także o kilku dodatkowych zagadnieniach.
+          <ul>
+            <li>Odwołanie do pliku biblioteki jQuery musi być umieszczone przed jakimkolwiek kodem JavaScript, w którym biblioteka ta jest używana. Innymi słowy, przed znacznikami &lt;scripts> odwołującymi się do jQuery nie należy umieszczać innych znaczników &lt;scripts>.</li>
+            <li>Własny kod JavaScript należy umieszczać za wszystkimi arkuszami stylów (zarówno dołączanymi, zewnętrznymi, jak i definiowanymi wewnątrz strony). Ponieważ kod korzystający z możliwości jQuery bardzo często odwołuje się do definicji stylów z CSS, dlatego też kod JavaScript należy umieszczać za arkuszami stylów, tak by w momencie jego wykonywania przeglądarka zdążyła je pobrać. Dobrą zasadą, do której można się stosować, jest umieszczanie znaczników &lt;scripts> wewnątrz sekcji nagłówka strony, poniżej jakiejkolwiek innej zawartości, lecz — oczywiście — przed zamykającym znacznikiem &lt;/head>.</li>
+            <li>Do własnego kodu JavaScript warto dodawać komentarze — na przykład komentarz // koniec funkcji ready, umieszczony po zamykającej sekwencjiznaków });, może oznaczać miejsce, w którym kończy się wywołanie funkcji ready(). Oto kompletny przykład:<code class="script"><br />
+            $(document).ready(function(){<br />
+            // to jest miejsce na nasz kod<br />
+            }); // koniec funkcji ready</code></li>
+          </ul>
+          <hr />
+          <h3>Wskazówka:</h3> jQuery udostępnia skrócony zapis wywołania funkcji <br />
+          <code class="script">$(document).ready(function(){}):<br />
+          $(function() {<br />
+          // to jest miejsce na nasz kod<br />
+          }); // koniec funkcji ready</code><br />
+         <p>
+          <h3>Podstawowe informacje o modyfikowaniu stron WWW</h3>
+         </p>
+
+        <footer>
+          <p><a href="http://www.w3schools.com/html/default.asp"><i>Kursy w3scool</i></a>
+          </p>
+        </footer>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <nav>
+        <h2>Artykuly</h2>
+        <ul>
+          <li><a href="sites/translator.html">Translator</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- simple meter example -->
+    <section id="pledge">
+      <header>
+        <h3>Our Fundraising Goal</h3>
+      </header>
+      <meter title="USD" id="pledge_goal" value="2500" min="0" max="5000" >
+        $2500.00
+      </meter>
+      <p>Help us reach our goal of $5000!</p>
+    </section>
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

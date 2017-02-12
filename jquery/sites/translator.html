@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../styles/jquery.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3 - Wprowadzenie do biblioteki jQuery</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+    <script>
+      // funkcja zamieniajaca znaki specjalne na ich kod.
+      function translate() {
+        // Pobranie kodu
+        var zmienna = window.prompt("Wklej kod", '');
+        //tablica kazdego elementu string kodu.
+        var tab = zmienna.split('');
+        // String wynikowy
+        var str = "";
+        //Zmienna pomocnicza 
+        var str_tmp;
+        // zmienna okreslajaca glebokosc zagniezdzenia.
+        var count_deep = 0;
+        var spac = '&amp;nbsp;';
+        var t = "";
+        /* Przechodzenie przez kazdy element kodu
+        /* w celu zaminay elementow specjalnych.*/
+        for (i = 0; i < tab.length; i++) {
+          t = "";
+          //jezeli jest spacja to zamiana na znak spacji
+          if (tab[i] == " ") {
+            tab[i] = '&amp;nbsp;';
+          } else if(tab[i] == "<") {
+            tab[i] = '&amp;lt;';//znak otwierajacy znacznika zamaina na odpowiedni kod
+          } else if (tab[i] == ">") {
+            tab[i] = "&amp;gt;";//znak zamykajacy znacznika zamaina na odpowiedni kod
+          }else if (tab[i] == ";") {
+            tab[i] = (tab[i] + "&lt;br />");
+            for (var a = 0; a <= count_deep; a++){
+              t = t + spac + spac;
+            }
+            tab[i] = (tab[i] + t);
+          } else if (tab[i] == "{") {
+            count_deep++;
+            for (var a = 0; a <= count_deep; a++){
+              t = t + spac + spac;
+            }
+            tab[i] = (tab[i] + "&lt;br />" + t);
+          }//Koniec warunku
+          else if (tab[i] == "}") {
+            count_deep = count_deep -1;
+            for (var a=0; a <= count_deep; a++){
+              t = t + spac + spac;
+            }
+            tab[i] = ("&lt;br />" + t + tab[i]);
+          }//koniec warunku
+          str = str + tab[i];
+        }// koniec iteracji przez kod.
+        document.write(str);
+      }// Koniec funkcji translate
+    </script>
+  </head>
+  <body>
+  <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Wprowadzenie do jQuery</h2>
+        </header>
+        <p>
+        &lt;script&gt;&nbsp;//&nbsp;funkcja&nbsp;zamieniajaca&nbsp;znaki&nbsp;specjalne&nbsp;na&nbsp;ich&nbsp;kod.&nbsp;function&nbsp;translate()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Pobranie&nbsp;kodu&nbsp;var&nbsp;zmienna&nbsp;=&nbsp;window.prompt("Wklej&nbsp;kod",&nbsp;'');<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//tablica&nbsp;kazdego&nbsp;elementu&nbsp;string&nbsp;kodu.&nbsp;var&nbsp;tab&nbsp;=&nbsp;zmienna.split('');<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;String&nbsp;wynikowy&nbsp;var&nbsp;str&nbsp;=&nbsp;"";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Zmienna&nbsp;pomocnicza&nbsp;var&nbsp;str_tmp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;zmienna&nbsp;okreslajaca&nbsp;glebokosc&nbsp;zagniezdzenia.&nbsp;var&nbsp;count_deep&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;spac&nbsp;=&nbsp;'&<br />&nbsp;&nbsp;&nbsp;&nbsp;nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;t&nbsp;=&nbsp;"";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Przechodzenie&nbsp;przez&nbsp;kazdy&nbsp;element&nbsp;kodu&nbsp;/*&nbsp;w&nbsp;celu&nbsp;zaminay&nbsp;elementow&nbsp;specjalnych.*/&nbsp;for&nbsp;(i&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;&lt;&nbsp;tab.length;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;"";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//jezeli&nbsp;jest&nbsp;spacja&nbsp;to&nbsp;zamiana&nbsp;na&nbsp;znak&nbsp;spacji&nbsp;if&nbsp;(tab[i]&nbsp;==&nbsp;"&nbsp;")&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tab[i]&nbsp;=&nbsp;'&<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if(tab[i]&nbsp;==&nbsp;"&lt;")&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tab[i]&nbsp;=&nbsp;'&<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//znak&nbsp;otwierajacy&nbsp;znacznika&nbsp;zamaina&nbsp;na&nbsp;odpowiedni&nbsp;kod&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(tab[i]&nbsp;==&nbsp;"&gt;")&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tab[i]&nbsp;=&nbsp;"&<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//znak&nbsp;zamykajacy&nbsp;znacznika&nbsp;zamaina&nbsp;na&nbsp;odpowiedni&nbsp;kod&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else&nbsp;if&nbsp;(tab[i]&nbsp;==&nbsp;";<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tab[i]&nbsp;=&nbsp;(tab[i]&nbsp;+&nbsp;"<<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;br&nbsp;/&gt;");<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;a&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;&lt;=&nbsp;count_deep;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a++){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;t&nbsp;+&nbsp;spac&nbsp;+&nbsp;spac;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;tab[i]&nbsp;=&nbsp;(tab[i]&nbsp;+&nbsp;t);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(tab[i]&nbsp;==&nbsp;"{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_deep++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;a&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;&lt;=&nbsp;count_deep;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a++){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;t&nbsp;+&nbsp;spac&nbsp;+&nbsp;spac;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;tab[i]&nbsp;=&nbsp;(tab[i]&nbsp;+&nbsp;"<<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;br&nbsp;/&gt;"&nbsp;+&nbsp;t);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}//Koniec&nbsp;warunku&nbsp;else&nbsp;if&nbsp;(tab[i]&nbsp;==&nbsp;"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}")&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_deep&nbsp;=&nbsp;count_deep&nbsp;-1;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;a=0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;&lt;=&nbsp;count_deep;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a++){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;t&nbsp;+&nbsp;spac&nbsp;+&nbsp;spac;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;tab[i]&nbsp;=&nbsp;("<<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;br&nbsp;/&gt;"&nbsp;+&nbsp;t&nbsp;+&nbsp;tab[i]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}//koniec&nbsp;warunku&nbsp;str&nbsp;=&nbsp;str&nbsp;+&nbsp;tab[i];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}//&nbsp;koniec&nbsp;iteracji&nbsp;przez&nbsp;kod.&nbsp;document.write(str);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;}//&nbsp;Koniec&nbsp;funkcji&nbsp;translate&nbsp;&lt;/script&gt;
+        </p>
+        <script type="text/javascript">
+          translate();
+        </script>
+        </article>
+  </section>
+
+  </body>
+</html>

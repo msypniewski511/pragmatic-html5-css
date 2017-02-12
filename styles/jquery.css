@@ -1,0 +1,97 @@
+@media only screen and (max-device-width: 480px) {
+body{
+width:460px;
+}
+section#sidebar, section#posts{
+float: none;
+width: 100%;
+}
+}
+
+body {
+	width: 960px;
+	margin: 15px auto;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+}
+p {
+	margin: 0 0 20px 0;
+}
+
+p, li {
+	line-height: 20px;
+}
+
+/* Definition of header's width */
+header#site_header {
+	width: 100%;
+	background-color: #7697B8;
+}
+
+/* Transform the bulleted lists into horizontal navigation bars */
+header#site_header nav ul, #site_footer nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: #4290DE;
+}
+#site_header nav ul li, footer#site_footer nav ul li {
+	padding: 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+/* Float left the post section */
+section#posts {
+	float: left;
+	width: 74%;
+}
+article.post header {
+	background-color: #87AFD6;
+}
+/* Float the callout inside the article */
+section#posts aside {
+	float: right;
+	width: 35%;
+	margin-left: 5%;
+	font-size: 20px;
+	line-height: 40px;
+}
+/* Float sidebar and give it width */
+section#site_bar {
+	float: left;
+	width: 23%;
+	border: 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 10px 0px 0px 20px;
+}
+section#side_bar nav {
+	background-color: #62E371;
+	margin: 10px;
+}
+section#site_bar h2 {
+	background-color: #62E371;
+	margin: 10px;
+	padding-left: 10px;
+}
+.post h3 {
+	background-color: #7EE88A;
+}
+
+/* clear floats on the footer to sits it at bottom of the page */
+footer#site_footer {
+	clear: both;
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+section#pledge {
+	width: 25%;
+	float: left;
+}
+code {
+	font-weight: bolder;
+	color: green;
+}
+code.script {
+	color: red;
+}

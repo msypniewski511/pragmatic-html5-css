@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/style_java.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Moja strona TESTOWA HTML5 CSS3</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="">Javascript</a></li>
+          <li><a href="jquery.html">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Jak dodać kod JavaScript do strony?</h2>
+          <p>Posted by The Pragmatic HTML5 and CSS3 on <time datatime="2017-02-10T11:34">Februar 10st, 2017 at 11:34AM</time>
+          </p>
+        </header>
+        <aside>
+          <p>
+            &quot;Aside Are Not Page Sidebars!!!&quot;<br />
+            &quot;The aside is designed to show content related to an article. It's good place to show related links, a glossary, or a pullout quote.&quot;
+          </p>
+        </aside>
+        <p>
+          <h3>Osadzony wewnatrz dokumentu.</h3>
+          <code>
+            &nbsp;&nbsp;&lt;!doctype html&gt;<br />
+            &nbsp;&nbsp;&lt;html&gt;<br />
+            &nbsp;&nbsp;&lt;head&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Strona WWW&lt;/title&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;<br />
+            </code>
+            <code class="script">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Witaj, świecie!');<br />
+            </code>
+            <code>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br />
+            &nbsp;&nbsp;&lt;/head&gt;<br />
+            &nbsp;&nbsp;&lt;body&gt;<br />
+            &nbsp;&nbsp;&lt;/body&gt;<br />
+            &nbsp;&nbsp;&lt;/html&gt;<br />
+            </code>
+        </p>
+        <p>
+          <h3>Zewnętrzne pliki JavaScript</h3>
+          <p>
+           <code>
+           &nbsp;&nbsp;&lt;!doctype html&gt;<br />
+           &nbsp;&nbsp;&lt;html&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Strona WWW&lt;/title&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src=&quot;navigation.js&quot;&gt;&lt;/script&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src=&quot;slideshow.js&quot;&gt;&lt;/script&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&gt;<br />
+           </code>
+           <code class="script">
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Witaj, świecie!');<br />
+           </code>
+           <code>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br />
+           &nbsp;&nbsp;&lt;/html&gt;<br />
+           </code>
+          </p>
+        </p>
+        <footer>
+          <p><a href="http://www.w3schools.com/html/default.asp"><i>Kursy w3scool</i></a>
+          </p>
+        </footer>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <nav>
+        <h3>Archives and another sites<br />Page Sidebars!!!</h3>
+        <ul>
+          <li><a href="sites/1.html">Pierwszy program w języku JavaScript</a></li>
+          <li><a href="sites/2.html">Dodawanie tekstu do stron</a></li>
+          <li><a href="sites/3.html">Dołączanie zewnętrznych plików JavaScript</a></li>
+          <li><a href="sites/4.html">Przykład — używanie zmiennych do tworzenia komunikatów</a></li>
+          <li><a href="sites/5.html">Przykład — pobieranie informacji</a></li>
+          <li><a href="sites/tablice.html">Tablice</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- simple meter example -->
+    <section id="pledge">
+      <header>
+        <h3>Our Fundraising Goal</h3>
+      </header>
+      <meter title="USD" id="pledge_goal" value="2500" min="0" max="5000" >
+        $2500.00
+      </meter>
+      <p>Help us reach our goal of $5000!</p>
+    </section>
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>
