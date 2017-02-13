@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Przyklad</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../styles/style_java.css">
+    <script src="../scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    var i = -1;
+    	$('document').ready(function(){
+    		$('.answer').hide();
+    		$('.post header').click(function(){
+    			i = (i * (-1));
+    			if(i<0){
+    				$(this).next('.answer').hide();
+    				//$('.answer').hide();
+    			}else {
+    				$(this).next('.answer').show();
+    				//$('.answer').show();
+    			}
+    			
+    		});
+    	});
+    	
+    </script>
+    <script>
+
+    </script>
+  </head>
+  <body>
+  	<header id="site_header">
+      <h1>Przykład — jednostronicowa lista FAQ</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../../index.html">Startowa</a></li>
+          <li><a href="../jquery.html">JQuery</a></li>
+        </ul>
+       
+        
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+      	<header>
+        <h2>Omówienie zadania</h2>
+        </header>
+        <p class="answer">
+        W sieci WWW znajduje się wiele stron z listami często zadawanych pytań (ang. Frequently Asked Questions — FAQ). Pozwalają one błyskawicznie uzyskać odpowiedź na pytanie — 24 godziny na dobę 7 dni w tygodniu, co usprawnia obsługę klienta. Niestety, większość list FAQ to albo bardzo długie strony pełne pytań i kompletnych odpowiedzi, albo krótkie strony z pytaniami w formie odnośników, które prowadzą do odrębnych stron z odpowiedziami. Oba te rozwiązania wydłużają wyszukiwanie informacji, gdyż w pierwszym przypadku zmuszają użytkownika do przewijania długiej strony w poszukiwaniu interesującego go pytania i odpowiedzi, a w drugim — oczekiwania na pobranie i wyświetlenie kolejnej strony. W tym przykładzie rozwiążesz ten problem przez utworzenie strony z listą FAQ opartej na kodzie JavaScript. Wczytana strona będzie zawierać wszystkie pytania, dlatego użytkownik będzie mógł szybko znaleźć to, które go interesuje. Jednak odpowiedź ma być ukryta do momentu kliknięcia wybranego pytania. Wtedy skrypt powinien stopniowo wyświetlać pożądaną odpowiedź.
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Kod JavaScript w tym zadaniu ma wykonywać kilka operacji:</h2>
+        </header>
+        <p class="answer">
+          Wyświetlać ukrytą odpowiedź po kliknięciu powiązanego z nią pytania.
+          Ukrywać widoczną odpowiedź po kliknięciu pytania.
+          Ponadto kod JavaScript posłuży do ukrycia wszystkich odpowiedzi w momencie wczytywania strony. Dlaczego nie użyć do tego stylów CSS? Aby ukryć odpowiedzi, wystarczy przecież ustawić w stylu właściwość display na none . Jednak jeśli przeglądarka ma wyłączoną obsługę języka JavaScript, użytkownik nie zobaczy odpowiedzi ani nie będzie mógł ich wyświetlić. Aby strona była przydatna zarówno w przeglądarkach z włączoną, jak i wyłączoną obsługą skryptów, najlepiej ukryć jej zawartość przy użyciu kodu JavaScript.
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Tworzenie kodu</h2>
+        </header>
+        <p class="answer">
+          <ol>
+            <li>Kliknij pusty wiersz pod kodem <code class="script">$(document).ready()</code> i dodaj fragment <code class="script">$('.answer').hide();</code> . Poszczególne odpowiedzi znajdują się w znacznikach &lt;div> klasy answer.Dodany wiersz kodu pobiera wszystkie te znaczniki i ukrywa je (opis funkcji. Zapisz stronę i wyświetl ją w przeglądarce. Wszystkie odpowiedzi powinny być ukryte.<br />
+            Następny krok wymaga określenia, do których elementów program ma dodać odbiornik zdarzenia. Ponieważ odpowiedzi pojawiają się po kliknięciu pytania, trzeba pobrać wszystkie pytania z listy FAQ. Na tej stronie znajdują się one w znacznikach &lt;h2> w elemencie o identyfikatorze main .
+            </li>
+            <li>
+            <code class="script">&lt;script src="../_js/jquery-1.6.3.min.js">&lt;/script><br />
+            &lt;script><br />
+            $(document).ready(function() {<br />
+            $('.answer').hide();<br />
+            $('.main h2')<br />
+            }); // Koniec funkcji ready<br />
+            &lt;/script></code>
+            Nowy kod to prosty selektor potomków, który pobiera wszystkie znaczniki &lt;h2>
+            zapisane w elemencie klasy main (dlatego skrypt nie modyfikuje pozostałych
+            znaczników &lt;h2> znajdujących się na stronie). Teraz należy dodać zdarzenie.
+            Dobrym kandydatem jest zdarzenie click , jednak aby wykonać postawione zadanie — wyświetlanie lub ukrywanie odpowiedzi w wyniku kliknięcia — lepiej użyć funkcji toggle(). Umożliwia ona wywoływanie dwóch różnych funkcji przy kolejnych kliknięciach.
+            </li>
+            <li>Bezpośrednio za kodem wpisanym w kroku 2. (w tym samym wierszu) dodaj fragment <code class="script">.toggle(</code>. Ten kod to początek funkcji <code class="script">toggle()</code>, która przyjmuje jako argumenty dwie funkcje anonimowe. Pierwsza funkcja będzie uruchamiana przy pierwszym kliknięciu, a druga — przy następnym. Najpierw należy dodać podstawową strukturę obu funkcji anonimowych.
+            </li>
+            <li>Wciśnij klawisz Enter, aby dodać nowy wiersz, a następnie wpisz poniższ kod:<br />
+            <code class="script">function() {<br />
+            }</code><br />
+            Jest to podstawowa struktura funkcji będącej pierwszym argumentem funkcji <code>toggle()</code>. Następnie należy dodać strukturę drugiej funkcji anonimowej.
+            </li>
+            <li><code class="script">&lt;script src="../_js/jquery-1.6.3.min.js">&lt;/script><br />&lt;script><br/>
+            $(document).ready(function() {<br/>
+            $('.answer').hide();<br />
+            $('#main h2').toggle(<br />
+            function() {<br />
+            },<br />
+            function() {<br />
+            }<br />
+            ) // Koniec funkcji toggle<br/>
+            }); // Koniec funkcji ready<br/>
+            &lt;/script></code><br />
+            Pora dodać pożądany efekt. Pierwsze kliknięcie znacznika &lt;h2> ma powodować wyświetlenie właściwej odpowiedzi. Każde pytanie znajduje się w znaczniku &lt;h2> , a powiązana z nim odpowiedź — w znajdującym się bezpośrednio po nim tagu &lt;div>. Ponadto znaczniki &ltdiv> mają przypisaną klasę answer. Dlatego potrzebny jest kod, który pobierze znacznik &lt;div>, znajdujący się po klikniętym tagu &lt;h2>.
+            </li>
+            <li>W pierwszej funkcji (wiersz 6. w kodzie z kroku 5.) dodaj instrukcję <code class="script">$(this).next('.answer').fadeIn();</code>. Tu jest to określony znacznik &lt;h2>. Biblioteka jQuery udostępnia kilka funkcji, które ułatwiają poruszanie się po strukturze strony. Funkcja <code class="script">.next()</code> zwraca znacznik znajdujący się bezpośrednio za podanym tagiem, czyli znacznik następujący po tagu &lt;h2>. Można doprecyzować wyszukiwanie przez podanie w funkcji <code class="script">.next()</code> dodatkowego selektora. Wywołanie <code>.next('.answer')</code> pozwala znaleźć pierwszy znacznik klasy answer po tagu &lt;h2>. Polecenie <code class="script">.fadeIn()</code> stopniowo wyświetla odpowiedzi.<br />
+            Teraz możesz zapisać stronę i wyświetlić ją w przeglądarce. Kliknij jedno z pytań, a skrypt powinien otworzyć właściwą odpowiedź. Jeśli program nie działa, uważnie sprawdź kod. Teraz trzeba uzupełnić efekt i sprawić, aby skrypt ukrywał odpowiedź po drugim kliknięciu pytania.
+            </li>
+            <li><code clas="script">&lt;script src="../_js/jquery-1.6.3.min.js">&lt;/script><br />
+            &lt;script><br />
+            $(document).ready(function() {<br/>
+            $('.answer').hide();<br />
+            $('#main h2').toggle(<br />
+            function() {<br />
+            $(this).next('.answer').fadeIn();<br />
+            },<br/>
+            function() {<br />
+            $(this).next('.answer').fadeOut();<br />
+            }<br />
+            ) // Koniec funkcji toggle<br />
+            }); // Koniec funkcji ready<br/>
+            &lt;/script></code><br />
+            Teraz drugie kliknięcie spowoduje ukrycie odpowiedzi. Zapisz stronę i wypróbuj ją. Choć działa prawidłowo, można ją jeszcze uatrakcyjnić. Obecnie przy każdym pytaniu widoczny jest mały znak plus. Jest to standardowa ikona, często używana jako wskazówka: „Uwaga, tu kryje się coś więcej”. Aby poinformować użytkownika o możliwości ukrycia odpowiedzi, warto zastąpić znak plusa minusem. W tym celu wystarczy dodać i usunąć odpowiednie klasy znacznika &lt;h2>.
+            </li>
+            <li><code class="script">&lt;script src="../_js/jquery-1.6.3.min.js">&lt;/script><br />
+            &lt;script><br /><br />
+            $(document).ready(function() {<br />
+            $('.answer').hide();<br />
+            $('#main h2').toggle(<br />
+            function() {<br />
+            $(this).next('.answer').fadeIn();<br />
+            $(this).addClass('close');<br />
+            },<br />
+            function() {<br />
+            $(this).next('.answer').fadeOut();<br />
+            $(this).removeClass('close');<br />
+            }<br />
+            ) // Koniec funkcji toggle<br />
+            });<br />
+            &lt;/script></code>
+            </li>
+          </ol>
+
+        </p>
+      </article>
+    </section>
+  </body>
+</html>
+

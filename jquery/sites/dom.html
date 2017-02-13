@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../styles/jquery.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3 - Wprowadzenie do biblioteki jQuery</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Zrozumieć DOM</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Javascript</a></li>
+          <li><a href="jquery.html">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Podstawowe informacje o modyfikowaniu stron WWW</h2>
+        </header>
+        <p>
+          Kiedy przeglądarka wczyta dokument HTML, wyświetla jego zawartość na ekranie (oczywiście, po określeniu jego wyglądu na podstawie zastosowanych arkuszy stylów CSS). Jednak nie jest to jedyna czynność wykonywana przez przeglądarkę i związana ze znacznikami, ich atrybutami oraz zawartością dokumentu HTML. Oprócz tego przeglądarka tworzy i zapamiętuje „model” danego dokumentu HTML. Innymi słowy, przeglądarka zapamiętuje znaczniki HTML, ich atrybuty oraz kolejność, w jakiej są zapisane w pliku — ta reprezentacja jest nazywana modelem obiektów dokumentu (ang. Document Object Model, w skrócie DOM).
+        </p>
+        <p>
+          Przeglądarki, oprócz znaczników HTML, zapamiętują także teksty wyświetlane we wnątrz nich oraz atrybuty przypisywane poszczególnym znacznikom. W rzeczywistości DOM traktuje te wszystkie znaczniki (nazywane także elementami), atrybuty i teksty jako odrębne jednostki, nazywane węzłami <stromg>(ang. node)</stromg>.
+        </p>
+        <p>
+          JavaScript udostępnia kilka sposobów wybierania elementów strony tak, by później można było coś z nimi zrobić — na przykład stopniowo ukryć lub przesunąć w inne miejsce. Metoda document.getElementById() pozwala na pobranie elementu o konkretnym identyfikatorze (podanym w kodzie HTML znacznika). Jeśli zatem na stronie znajduje się znacznik <strong>&lt;div></strong> z <strong>atrybutem id</strong> o wartości <code>banner</code>, można go pobrać przy użyciu następującego wywołania:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">document.getElementById('banner');</code><br />
+          Podobnie metoda <code class="script">document.getElementsByTagName()</code> pobiera każdy egzemplarz podanego znacznika umieszczony na stronie (na przykład wywołanie <code class=script>document.getElementsByTagName('a')</code> pobiera wszystkie dostępne na danej stronie znaczniki odnośników); dodatkowo niektóre przeglądarki udostępniają także metody pozwalające na pobieranie wszystkich elementów posiadających odpowiednią klasę bądź pobieranie elementów na podstawie reguł CSS.
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Pobieranie elementów stron na sposób jQuery</h2>
+        </header>
+        <aside>
+          <p>
+          Zgodnie z tym, czego się dowiedziałeś na poprzedniej stronie, przeglądarki WWW udostępniają dwie podstawowe metody służące do pobierania elementów stron — document.getElementById() oraz document.getElementsByTagName() . Niestety, nie zapewniają one dostatecznej kontroli, która pozwoliłaby na pobieranie elementów na podstawie bardziej wyszukanych kryteriów. Gdybyśmy na przykład chcieli pobrać wszystkie elementy &lt;a>, którym przypisano klasę navButton , najpierw musielibyśmy pobrać wszystkie znaczniki odnośników, a następnie wybrać z nich te, które mają odpowiednią klasę.
+          </p>
+        </aside>
+        <p>
+          Tak się składa, że jQuery udostępnia niezwykle użyteczną technikę pozwalającą na pobieranie kolekcji elementów i operowanie na nich, są to selektory CSS. Jeśli zatem jesteś przyzwyczajony do określania postaci swoich stron przy użyciu kaskadowych arkuszy stylów, jesteś także gotów, by rozpocząć korzystanie z jQuery. Selektor CSS jest jedynie instrukcją informującą przeglądarkę, w których znacznikach należy zastosować dany styl. I tak h1 jest bardzo prostym selektorem elementu, który odnosi się do wszystkich znaczników &lt;h1>; z kolei .copyright jest selektorem klasy określającym postać dowolnych znaczników mających atrybut class o wartości copyright:<br />
+          &lt;p class="copyright">Wszelkie prawa zastrzeżone, 2011&lt;/p><br/> Podczas korzystania z jQuery można pobrać jeden lub większą liczbę elementów, posługując się specjalnym poleceniem nazywanym <strong><code class="script">obiektem jQuery</code></strong>. Służy do tego kod o następującej postaci:<br />
+          <h2><code class="script">$('selektor')</code></h2><br/>
+        </p>
+        <p>
+          W czasie tworzenia obiektu jQuery można używać niemal wszystkich selektorów CSS 2.1 oraz wielu selektorów CSS 3 (i to nawet wtedy, gdy nie są one rozumiane przez samą przeglądarkę — jak to się dzieje w przypadku wielu selektorów CSS 3 w przeglądarkach Internet Explorer). Gdy na przykład chcemy pobrać znacznik o identyfikatorze <code>(atrybucie id) banner</code>, możemy użyć następującego fragmentu kodu:<br />
+          <code class="script">$('#banner')</code><br />
+          gdzie <code>#banner</code> jest selektorem CSS używanym do określania postaci znacznika, którego identyfikator ma wartość banner — znak # informuje, że interesuje nas właśnie atrybut id . Oczywiście, kiedy już pobierzemy jakieś elementy, będziemy chcieli coś z nimi zrobić — jQuery udostępnia wiele narzędzi pozwalających na przeprowadzanie różnego typu operacji na elementach. Załóżmy przykładowo, że chcielibyśmy zmienić kod HTML umieszczony wewnątrz elementu. Możemy to zrobić w następujący sposób:<br />
+          <code class="script">$(</code><code>'#banner'</code><code class="script">).html(</code><code>'&lt;h1>Byłem tu, JavaScript&lt;/h1>'</code><code class="script">);</code><br />
+        </p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Proste selektory</h2>
+        </header>
+        <p>
+          Proste selektory CSS, takie jak te, które bazują na identyfikatorze elementu, nazwie klasy lub znacznika, stanowią podstawę kaskadowych arkuszy stylów. Są one doskonałym sposobem pobierania szerokiej gamy elementów przy użyciu jQuery.
+        </p>
+        <p>
+          <h3>Selektory identyfikatorów</h3>
+          Każdy element strony, który ma określony identyfikator <code>(wartość atrybutu <strong>id</strong>)</code>, można pobrać przy użyciu selektora identyfikatora. Załóżmy, że na stronie WWW znajduje się kod HTML w następującej postaci:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;p id="message">Komunikat specjalny&lt;/p></code><br />
+          Aby pobrać taki element przy użyciu starego sposobu korzystającego tylko z metod dostępnych w DOM, należałoby użyć następującego kodu:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">var messagePara = document.getElementById("</code><code>message</code><code class="script">");<br/></code>
+          Analogiczne wywołanie z zastosowaniem biblioteki jQuery ma następującą postać:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">var messagePara = $('</code><code>#message</code><code class="script">');</code><br />
+        </p>
+        <p><aside>
+          <p><br />Wskazówka: Biblioteka jQuery obsługuje nawet większą liczbę różnego rodzaju selektorów niż te, które zostały tu przedstawione. W książce opisano wiele przydatnych selektorów jQuery, lecz ich pełną listę można znaleźć na stronie http://api.jquery.com/category/selectors/.</p>
+          </aside>
+          <h3>Selektory elementów</h3>
+          Biblioteka jQuery udostępnia także swój własny zamiennik metody DOM — getElementsByTagName(). By z niego skorzystać, wystarczy podać w wywołaniu jQuery nazwę znacznika. Aby na przykład pobrać wszystkie znaczniki &lt;a> umieszczone na stronie z wykorzystaniem starej metody DOM, należałoby użyć poniższego wywołania:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">var linksList = document.getElementsByTagName('a');</code><br />
+          Po zastosowaniu jQuery analogiczne wywołanie ma następującą postać:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">var linksList = $('a');</code><br />
+          
+        </p>
+        <p>
+          <h3>Selektory klas</h3>
+          Kolejnym przydatnym sposobem pobierania elementów stron jest zastosowanie nazwy klasy. jQuery udostępnia bardzo prosty sposób pobierania wszystkich elementów należących do klasy o podanej nazwie. Wystarczy w tym celu użyć selektora klasy CSS, który ma następującą postać:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$('.submenu')</code><br />
+        </p>
+        <p>
+          <h3>Selektory zaawansowane</h3>
+          Biblioteka jQuery pozwala także na stosowanie bardziej zaawansowanych selektorów, za pomocą których można precyzyjne wybrać potrzebne elementy.<br />
+          <ul>
+            <li>
+            <strong>Selektory elementów potomnych</strong> pozwalają odwołać się do znacznika umieszczonego wewnątrz innego. Przykładowo załóżmy, że utworzyliśmy wypunktowaną listę odnośników i znacznikowi &lt;ul> nadaliśmy identyfikator navBar — &lt;ul id="navBar"> . Wyrażenie jQuery w postaci $('a') pobierze wszystkie znaczniki &lt;a> istniejące na stronie. Jeśli jednak chcemy pobrać wyłącznie odnośniki umieszczone wewnątrz listy, możemy to zrobić przy użyciu selektora w następującej postaci:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$('#navBar a')</code><br />
+            </li>
+            <li>
+            <strong>Selektory dzieci</strong> pozwalają pobierać elementy będące dziećmi innych elementów. „Dziecko” to bezpośredni element potomny innego elementu. Selektor dziecka tworzy się, zapisując najpierw element rodzica, następnie znak mniejszości ( > ) i w końcu element dziecka. Aby na przykład pobrać znaczniki &lt;p> będące dziećmi znacznika &lt;body>, należałoby użyć wywołania:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$('body > p')</code><br />
+            </li>
+            <li>
+            <strong>Selektory elementów sąsiadujących</strong> pozwalają pobierać znaczniki, które w kodzie HTML są umieszczone bezpośrednio za jakimiś innymi znacznikami. Załóżmy na przykład, że dysponujemy ukrytym panelem, wyświetlanym po kliknięciu konkretnej zakładki. W kodzie HTML taka zakładka mogłaby być reprezentowana przez jakiś znacznik nagłówka (na przykład &lt;h2> ), natomiast ukryty panel — przez znacznik &lt;div> umieszczony bezpośrednio za nagłówkiem. Aby wyświetlić taki znacznik &lt;div> (nasz panel), musimy mieć możliwość pobrania go. Przy użyciu jQuery oraz selektorów elementów sąsiadujących można to zrobić bardzo łatwo:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$('h2 + div')</code><br />
+            </li>
+            <strong>Selektory atrybutów</strong> pozwalają pobierać elementy na podstawie tego, czy posiadają konkretne atrybuty, a nawet, czy atrybuty te posiadają ściśle określone wartości. Korzystając z takiego selektora, można odszukać wszystkie znaczniki &lt;img> , w których użyto atrybutu alt , a nawet te spośród nich, w których w atrybucie alt podano odpowiedni łańcuch znaków. Można także odszukać wszystkie odnośniki, jakie odwołują się do stron spoza naszej witryny, a następnie dodać do nich kod, który sprawi, że strony te zostaną wyświetlone w nowym oknie przeglądarki. Selektor atrybutu jest umieszczany za nazwą elementu, którego atrybuty chcemy sprawdzać. Aby na przykład znaleźć wszystkie znaczniki &lt;img> , w których został podany atrybut alt 
+            , można użyć następującego wyrażenia:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$('img[alt]')</code><br />
+            Istnieje kilka różnych rodzajów selektorów atrybutów:<br />
+            <ul>
+              <li>
+              <strong>[atrybut]</strong> pobierają elementy, w których kodzie HTML został podany konkretny atrybut; na przykład <code class="script">$(a[href])</code> znajdzie wszystkie znaczniki &lta>, w których została podana wartość atrybutu href. Używając takiego selektora, można pominąć wszystkie nazwane odnośniki — &lt;a name="jakiesMiejsce Strony">&lt;/a> — czyli odnośniki używane do poruszania się w obrębie tej samej strony.
+              </li>
+              <li><strong>[atrybut="wartość"]</strong> pozwalają pobrać elementy, w których konkretny atry-
+but ma określoną wartość; na przykład poniższy selektor pozwala pobrać
+wszystkie pola tekstowe formularza:
+$('input[type="text"]')
+Ponieważ niemal wszystkie pola formularzy korzystają z tego samego znacz-
+nika — <input> — zatem jedynym sposobem określenia typu pola jest spraw-
+dzenie jego atrybutu type (pobieranie pól formularzy na podstawie ich typu
+jest operacją wykonywaną tak często, że jQuery udostępnia specjalne selektory
+służące właśnie do tego celu, zostały one opisane na stronie 273).
+• [atrybut^="wartość"] odnajduje elementy, w których wartość określonego
+atrybutu rozpoczyna się od podanego ciągu znaków. Aby na przykład znaleźć
+wszystkie odnośniki wskazujące strony spoza naszej witryny, można użyć
+następującego kodu:
+$('input[type^="http://"]')
+Należy zwrócić uwagę, że nie cała wartość atrybutu musi pasować do łańcu-
+cha podanego w selektorze, a jedynie jej początek. A zatem selektor href^=
+ ́"http://" odnajdzie odnośniki wskazujące strony http://www.google.com,
+http://helion.pl i tak dalej. Takiego selektora można także użyć do pobrania
+wszystkich odnośników służących do wysyłania wiadomości poczty elektro-
+nicznej; oto przykład:
+$('a[href^="mailto:"]')
+[atrybut$="wartość"] odnajduje elementy, w których wartość określonego
+atrybutu kończy się podanym ciągiem znaków, co jest doskonałym sposobem
+odnajdywania rozszerzeń plików. Przy użyciu selektora tego typu można od-
+szukać wszystkie odnośniki prowadzące do plików PDF (na przykład po to, by
+przy użyciu kodu JavaScript dodać do nich ikonę PDF lub automatycznie wy-
+generować odnośnik do strony firmy Adobe, z której użytkownik mógłby po-
+brać program Acrobat Reader). Selektor pozwalający na pobranie wszystkich
+odnośników do plików PDF ma następującą postać:
+$('a[href$=".pdf"]')
+• [atrybut*="wartość"] pozwala pobrać wszystkie elementy, których okre-
+ślony atrybut zawiera podany ciąg znaków. Dzięki temu można odszukać na
+przykład odnośniki dowolnego typu prowadzące do domeny o określonej na-
+zwie. Oto przykładowy selektor pozwalający na pobranie wszystkich odnośni-
+ków do strony missingmanuals.com (http://missingmanuals.com):
+$('a[href*="missingmanuals.com"]')
+Powyższy selektor jest na tyle elastyczny, że pozwala nie tylko na pobieranie
+odnośników wskazujących stronę http://www.missingmanuals.com, lecz
+także kierujących na strony http://missingmanuals.com bądź http://www.
+missingmanuals.com/library.html.
+        </p>
+      </article>
+        <footer>
+          <p><a href="http://www.w3schools.com/html/default.asp"><i>Kursy w3scool</i></a>
+          </p>
+        </footer>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <nav>
+        <h2>Artykuly</h2>
+        <ul>
+          <li><a href="translator.html">Translator</a></li>
+          <li><a href="mod.html">Podstawowe informacje o modyfikowaniu stron WWW</a></li>
+          <li><a href="dom.html">DOM</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

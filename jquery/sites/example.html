@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Przyklad</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../styles/style_java.css">
+    <script src="../scripts/jquery-3.1.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('span.pq').each(function() {
+        	var quote=$(this).clone();
+        	quote.removeClass('pq');
+        	quote.addClass('pullquote');
+        	$(this).before(quote);
+        }); // koniec funkcji each
+        $('.submenu').hide();
+        $('#javascript').mouseover(function(){
+          $('.submenu').show(1000);
+        });
+        $('#jquery').mouseover(function(){
+          $('.submenujquery').show(1000);
+        });
+        $('#posts').mouseover(function(){
+          $('.submenu').hide(1000);
+          $('.submenujquery').hide(1000);
+        });
+      }); // koniec funkcji ready
+    </script>
+  </head>
+  <body>
+  	<header id="site_header">
+      <h1>Przyklad menu rozwijanego jQuery</h1>
+      <nav><!-- Begining of navigation panel -->
+        <div id="startowa"><a href="../../index.html">Startowa</a></div>
+        <div id="javascript">JavaScript
+            <ul class="submenu">
+              <li><a href="../index.html">Javascript</a></li><br />
+              <li>2 element</li><br />
+              <li>3 element<li>
+            </ul>
+        </div>
+        <div id="jquery">JQuery
+            <ul class="submenujquery">
+              <li><a href="../index.html">Javascript</a></li><br />
+              <li>2 element</li><br />
+              <li>3 element</li><br />
+              <li>4 element</li>
+            </ul>
+        </div>
+        
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Automatycznie tworzone, wyróżniane cytaty</h2>
+        </header>
+        <p>
+          W pierwszym przykładzie zamieszczonym w tym rozdziale napiszemy skrypt, który ułatwia tworzenie wyróżnianych cytatów. Wyróżniany cytat (ang. pull quote) to ramka zawierająca interesujący cytat wybrany z głównego tekstu publikowanego na danej stronie. Wszystkie gazety, czasopisma oraz witryny WWW używają ich, by wzbudzić zainteresowanie czytel- ników bądź skierować ich uwagę na ważne lub interesujące zagadnienia. Jednak ręczne tworzenie takich wyróżnianych cytatów wymagałoby powielania tekstu na stronie i umieszczania go w znacznikach — &lt;div> , &lt;span> bądź jeszcze innych. Tworzenie kodu HTML wymaga czasu i powoduje powiększenie strony o powielające się fragmenty. Na szczęście, z wykorzystaniem JavaScriptu można bardzo szybko utworzyć na stronie dowolną liczbę wyróżnionych cytatów, dodając do niej jedynie niewielkie fragmenty kodu HTML.
+        </p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Opis rozwiązania</h2>
+        </header>
+        <p>
+          Skrypt, który napiszemy, będzie realizował kilka zadań.
+          <ol>
+            <li>
+              <strong>Odnajdzie na stronie wszystkie znaczniki &lt;span></strong> należące do klasy o nazwie pq (od angielskich słów pull quote). Jedyną zmianą, jaką będziemy musieli wprowadzić w kodzie HTML strony, będzie dodanie kilku znaczników &lt;span> , wewnątrz których umieścimy tekst, jaki ma zostać przekształcony na wyróżnione cytaty. Na przykład załóżmy, że na stronie znajduje się akapit, zawierający kilka słów, które chcemy pobrać i wyświetlić w formie wyróżnionego cytatu. Wystarczy umieścić te słowa wewnątrz znacznika &lt;span>: &lt;span class="pq">... i właśnie w taki sposób odkryłem potwora z Loch Ness.&lt;/span>.
+            </li>
+            <li>
+              <strong>Powieli każdy ze znaczników &lt;span></strong>. Każdy wyróżniony cytat jest kolejnym znacznikiem &lt;span> zawierającym dokładnie ten sam tekst, a zatem możemy skorzystać z JavaScriptu, by powielić istniejące na stronie znaczniki &lt;span>.
+            </li>
+            <li>
+              <strong>Usunie z powielonych znaczników &lt;span></strong> klasę pq i zastąpi ją klasą pullquote. Za całą magię formatowania — utworzenie ramki, użycie większej czcionki, wyświetlenie obramowania i zmianę koloru tła — powodującą wizualne wyróżnienie wybranego cytatu nie odpowiada JavaScript. Arkusz stylów używanych na stronie zawiera definicję stylu o nazwie pullquote , odpowiadającego za zmianę wyglądu cytatu. A zatem całkowita zmiana wyglądu nowych znaczników &lt;span> jest wyłącznie efektem użycia JavaScriptu do zmiany używanej w nich nazwy klasy.
+            </li>
+            <li>
+              <strong>Doda powielony znacznik &lt;span></strong> do kodu strony. W końcu, powielone znaczniki &lt;span> trzeba dodać do strony. (W kroku 2. utworzyliśmy kopię znacznika przechowywaną w pamięci przeglądarki, jednak aż do tej pory nie dodaliśmy jej do kodu strony. Takie rozwiązanie pozwala wprowadzać dodatkowe zmiany w wyglądzie powielanych znaczników, zanim zostaną one wyświetlone na stronie).
+            </li>
+           </ol>
+        </p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Kod rozwiązania</h2>
+        </header>
+        <p>
+          <ol>
+            <li>
+              <strong>Zaczniemy od dodania na początku pliku odwołania do zewnętrznego pliku biblioteki jQuery.</strong>
+              <span class="pq"></Kliknij pusty wiersz umieszczony tuż powyżej zamykającego znacznika &lt;/head> i pisz:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code class="script">&lt;script src="../_js/jquery-1.6.3.min.js">&lt;/script></code><br />Ten znacznik wczyta zewnętrzny plik jQuery przechowywany na naszej witrynie. Zwróć uwagę, że plik ten znajduje się w katalogu o nazwie _js (nie zapomnij o znaku podkreślenia na samym początku). Teraz musisz dodać drugą parę znaczników &lt;script> , w której umieścisz kod JavaScript.
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.3.min.js">&lt;script><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>&lt;script><br />
+              ...<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/script></strong></code><br />
+              <p><strong>Kolejnym krokiem będzie dodanie wywołania funkcji</strong> <code class="script">document.ready()</code>.</p>
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.3.min.js">&lt;script><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;script></code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script_new">$document.ready(function(){<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); // koniec funkcji ready</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/script></code>br />
+              <p>Czynności wykonane w punktach od 1. do 3. stanowią podstawowe przygotowania, które będziesz wykonywał, pisząc każdy program używający biblioteki jQuery, koniecznie się zatem upewnij, że dobrze je rozumiesz. Teraz zajmiemy się najważniejszymi czynnościami, jakie ma wykonywać nasz program — zaczniemy do pobrania wszystkich znaczników &lt;span> zawierających teksty, które chcemy wyświetlić w formie wyróżnionych cytatów.</p>
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.3.min.js">&lt;script><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;script></code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$(document).ready(function() {<br /></code>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="Script_new">$('span.pq')</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">}); // koniec funkcji ready</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/script></code><br />
+              Wyrażenie <code class="script">$('span.pq')</code> to selektor jQuery pozwalający pobrać wszystkie znaczniki &lt;span> należące do klasy pq. Teraz dodamy kod niezbędny do przejrzenia znaczników &lt;span> i wykonania na nich operacji.
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.3.min.js">&lt;script><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;script></code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$(document).ready(function() {</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script_new">$('span.pq').each(function() {</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">}); // koniec funkcji each<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;}); // koniec funkcji ready</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/script></code><br />
+              Funkcja each() jest funkcją jQuery pozwalającą przejrzeć kolekcję wybranych elementów strony. Wymaga ona przekazania jednego argumentu — funkcji anonimowej. Teraz zaczniesz pisać kod funkcji, która będzie przetwarzać kolejne pobrane znaczniki. Pierwszym zadaniem będzie utworzenie kopii przetwarzanego elementu &lt;span>.
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.2.min.js">&lt;/script><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;script></code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$(document).ready(function() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('span.pq').each(function() {</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script_new">var quote=$(this).clone();</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">}); // koniec funkcji each<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;}); // koniec funkcji ready</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/script></code><br />
+              Działanie tej funkcji rozpoczyna się od utworzenia nowej zmiennej o nazwie quote , zawierającej „klon” (czyli po prostu kopię) aktualnie przetwarzanego elementu &lt;span>. Funkcja .clone() biblioteki jQuery powiela aktualny element, włącznie z całym, umieszczonym wewnątrz niego kodem HTML. W tym przypadku tworzymy kopię znacznika &lt;span>, włącznie z umieszczonym wewnątrz niego tekstem, który chcemy wyświetlić w formie wyróżnionego cytatu. Klonowanie elementów powoduje skopiowanie ich w całości, włącznie ze wszelkimi atrybutami. W naszym przypadku kopiowany znacznik &lt;span> należy do klasy o nazwie pq. W kolejnym kroku usuniemy tę klasę ze skopiowanego znacznika.
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.2.min.js">&lt;/script><br />
+              &nbsp;&nbsp;&lt;script></code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$(document).ready(function() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('span.pq').each(function() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var quote=$(this).clone();</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script_new">quote.removeClass('pq');<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quote.addClass('pullquote');</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">}); // koniec funkcji each<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;}); // koniec funkcji ready</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/script></code><br />
+              Funkcja removeClass() usuwa podaną nazwę klasy ze wskazanego znacznika, natomiast funkcja addClass() dodaje do znacznika podaną nazwę klasy. W tym przypadku operację zamiany nazwy klasy wykonujemy na kopii znacznika &lt;span>, zatem będziemy mogli użyć klasy CSS o nazwie pullquote, by sformatować skopiowany znacznik i nadać mu wygląd wyróżnionego cytatu.<br />
+              Kolejną czynnością będzie dodanie znacznika do kodu strony WWW.
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;script src="../_js/jquery-1.6.2.min.js">&lt;/script><br />
+              &nbsp;&nbsp;&lt;script></code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">$(document).ready(function() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('span.pq').each(function() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var quote=$(this).clone();</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script_new">quote.removeClass('pq');<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quote.addClass('pullquote');<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).before(quote);</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="script">}); // koniec funkcji each<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;}); // koniec funkcji ready</code><br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/script></code><br />
+              Wyróżniony pogrubieniem wiersz kodu jest ostatnim elementem funkcji — do tej pory operowaliśmy na kopii znacznika &lt;span> przechowywanej w pamięci przeglądarki. Użytkownik nie zobaczyłby funkcji aż do momentu dodania jej do modelu obiektów dokumentu strony. W tym kroku dodajemy kopię znacznika &lt;span>; umieszczamy ją w kodzie HTML strony bezpośrednio przed oryginalnym elementem. W efekcie wynikowa strona będzie zawierać kod HTML w następującej postaci: &lt;span class="pullquote">... i właśnie w taki sposób odkryłem potwora z Loch Ness.&lt;/span>&lt;span class="pq">... i właśnie w taki sposób odkryłem potwora z Loch Ness.&lt;/span>. Choć kod może sugerować, że na stronie prezentowanej w przeglądarce te dwa fragmenty tekstu zostaną umieszczone tuż obok siebie, jednak zastosowane style CSS sprawią, że cytat zostanie wydzielony i wyświetlony przy prawej krawędzi strony. W ten sposób udało się zakończyć tworzenie kodu JavaScript naszego przykładu. Jednak nie uda się zobaczyć żadnych wyróżnionych cytatów, dopóki nie wprowadzisz jeszcze pewnych zmian w kodzie HTML strony.
+            </li>
+            <li>
+            <p>
+              	<p><span class="pq">Odszukaj w kodzie HTML strony pierwszy znacznik &lt;p>, następnie odszukaj zdanie i umieść je wewnątrz znaczników</span> &lt;span class="pq">&lt;/span>, na przykład tak:<br />
+              	<code>&lt;span class="pq">Nullam ut nibh sed orci tempor rutrum.&lt;/span></code><br />
+              	Możesz powtórzyć powyższy proces, by dodać wyróżnione cytaty także do innych akapitów tekstu.</p>
+            </li>
+          </ol>
+        </p>
+      </article>
+      
+    </section>
+
+  </body>
+</html>

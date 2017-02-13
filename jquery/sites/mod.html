@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../styles/jquery.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3 - Wprowadzenie do biblioteki jQuery</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Wprowadzenie do biblioteki jQuery</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Javascript</a></li>
+          <li><a href="jquery.html">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Podstawowe informacje o modyfikowaniu stron WWW</h2>
+        </header>
+        <p>
+          Znaczna część zadań, do jakich będziemy używali JavaScriptu, sprowadza się do manipulowania stronami WWW poprzez dodawanie do nich nowych treści, modyfikację ich oryginalnego kodu HTML bądź też przypisywanie stylów do wybranych elementów. Jakakolwiek zmiana zawartości strony — czy to kodu HTML, czy stylów CSS, taka jak dodanie paska nawigacyjnego z dynamicznym, rozwijanym menu, czy tworzenie interaktywnego pokazu slajdów, czy też bardzo proste stopniowe wyświetla nie elementu — będzie się składała z dwóch podstawowych etapów.
+          <ol>
+            <li><h3>Wybranie odpowiedniego elementu strony.</h3>
+              Elementem tym może być dowolny istniejący znacznik; zanim będziemy mogli coś z nim zrobić, będziemy musieli wybrać go w kodzie JavaScript (jak to zrobić, dowiesz się w dalszej części rozdziału). Aby na przykład stopniowo wyświetlić zawartość strony, trzeba ją najpierw wybrać (znacznik &lt;body> ); aby z kolei wyświetlić menu kontekstowe po wskazaniu przycisku myszą, musimy wybrać ten przycisk. Nawet jeśli chcemy wykonać banalną operację dodania jakiegoś tekstu na końcu strony, to i tak musimy zacząć od wybrania znacznika, przed którym lub za którym tekst zostanie dodany.
+            </li>
+            <li><h3>Wykonanie na tym elemencie pewnych operacji.</h3>
+              <ul>
+              <li><strong>Zmiana właściwości elementu.</strong> Podczas animacji położenia elementu &lt;div> na stronie modyfikowane są współrzędne określające jego położenie.</li>
+              <li><strong>Dodawanie nowej zawartości.</strong> Jeśli podczas wypełniania formularza użytkownik popełni jakiś błąd, popularnym rozwiązaniem jest wyświetlanie komunikatu o błędzie, takiego jak: „Proszę podać prawidłowy adres e-mail”. W takim przypadku dodajemy nową zawartość strony, umiejscowioną względem konkretnego pola formularza.</li>
+              <li><strong>Usunięcie elementu.</strong> Na witrynie Netflix.com, okienko informacyjne znika po usunięciu wskaźnika myszy z tytułu filmu. W tym przypadku program JavaScript usuwa okienko ze strony.
+              </li>
+              <li><strong>Pobranie informacji o elemencie.</strong> Może się zdarzyć, że będziemy chcieli zdobyć pewne informacje na temat wybranego znacznika. Aby na przykład sprawdzić poprawność informacji podanych w polu tekstowym, konieczne jest wybranie tego pola, a następnie pobranie tekstu, który został w nim podany. Inaczej mówiąc, konieczne jest pobranie wartości konkretnego pola.
+              </li>
+              <li><strong>Dodanie lub usunięcie atrybutu class</strong>. Czasami będziemy chcieli zmienić wygląd jakiegoś elementu strony: wyświetlić na niebiesko tekst w wybranym akapicie lub oznaczyć błędnie wypełnione pole formularza, zmieniając kolor tła na czerwony. Choć takie wizualne modyfikacje można wprowadzać przy użyciu odu JavaScript, jednak niejednokrotnie najprostszym rozwiązaniem będzie zastosowanie odpowiedniej klasy CSS, a przeglądarka wprowadzi wszelkie wizualne zmiany na podstawie kodu CSS zdefiniowanego w arkuszu stylów. W takim przypadku zmiana koloru tekstu w akapicie na niebieski sprowadza się do utworzenia odpowiedniej klasy z niebieskim kolorem tekstu i napisania kodu JavaScript, który dynamicznie użyje tej klasy w wybranym akapicie.
+              </li>
+              </ul>
+            </li>
+          </ol>
+        <footer>
+          <p><a href="http://www.w3schools.com/html/default.asp"><i>Kursy w3scool</i></a>
+          </p>
+        </footer>
+      </article>
+    </section><!-- Koniec sekcji glownej -->
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <nav>
+        <h2>Artykuly</h2>
+        <ul>
+          <li><a href="translator.html">Translator</a></li>
+          <li><a href="mod.html">Podstawowe informacje o modyfikowaniu stron WWW</a></li>
+          <li><a href="dom.html">DOM</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>
