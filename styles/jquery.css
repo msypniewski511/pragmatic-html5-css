@@ -95,3 +95,62 @@ code {
 code.script {
 	color: red;
 }
+code.funkction {
+	font-size: bolder;
+	color: navy;
+}
+p#form {
+	width: 50%;
+	display: inline;
+	margin: 0;
+	cursor: pointer;
+	background-color: white;
+	background-image: url("/images/open.png");
+	background-repeat: no-repeat;
+	background-position: left;
+
+}
+.close {
+	background: white url("../../images/close.png") no-repeat right;
+
+}
+div#content {
+	width: 70%;
+	align-items: center;
+}
+div#content p {
+	border: 1px solid;
+	align-content: center;
+	padding: 2px;
+}
+
+
+div#pokaz {
+	position: fixed;
+	top: 20px;
+	left: -100px;
+	height: 600px;
+	width: 120px;
+	background-color: #7EE88A;
+	border: 1px solid;
+}
+p.pierwsza {
+	border: 2px solid;
+	margin: 5px;
+	margin-top: 20px;
+	padding: 2px;
+	background-image: url("../../images/rails.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+img.druga {
+	border: 2px solid;
+	margin: 10px auto 10px 15px;
+}
+img.trzecia {
+	border: 2px solid;
+	margin: 10px auto 10px 15px;
+}
+img.czwarta {
+	margin: 10px auto 10px 10px;
+}

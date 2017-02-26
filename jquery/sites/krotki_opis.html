@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../styles/jquery.css" type="text/css">
+    <title>Pragmatic HTML5 CSS3 - Wprowadzenie do biblioteki jQuery</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" >
+      document.createElement("nav" );
+      document.createElement("header" );
+      document.createElement("footer" );
+      document.createElement("section" );
+      document.createElement("aside" );
+      document.createElement("article" );
+    </script>
+    <![endif]-->
+    <script src="../../scripts/jquery-3.1.1.min.js"></script>
+    <script>
+    
+    $(document).ready(function(){
+      /* :Przyklad panelu bocznego */
+      $('#pokaz').hover(
+        function(){
+          $(this).stop().animate(
+          {
+            left: "0px"
+          },
+          1000);
+        },
+        function(){
+          $(this).stop().animate(
+          {
+            left: "-100px"
+          },
+          1000);
+        });
+
+      /*  Formularz logowania */
+      $('#content').hide();
+      var message1 = "<img src='../../images/open.png'>";
+      $('#form').click(function(){
+        $('#content').slideToggle(500);
+      });
+      /*Elementy slide */
+      $('#slideDown').hide(0);
+      $('#nadol').click(function(){
+        $('#slideDown').slideDown(1500)
+      });
+      $('#gora').click(function(){
+        $('#slideUp').slideUp(1500)
+      });
+      $('#slideToggleOpis').click(function(){
+        $('#slideToggle').slideToggle(1500)
+      });
+      /*koniec elementow slide */
+
+      /*elementy spisu tresci strony */
+      $('#1').click(function(){
+        $('#1 + p').toggle(1000)
+      });
+      $('#2').click(function(){
+        $('#2 + ul').toggle(1000)
+      });
+      $('#3').click(function(){
+        $('#3 + ul').fadeToggle(1000)
+      });
+      $('#4').click(function(){
+        $('#4 + ul').toggle(1000)
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Wprowadzenie do biblioteki jQuery</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+        </ul>
+      </nav>
+    </header><!-- Ending of header -->
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Efekty biblioteki jQuery</h2>
+        </header>
+        <p>Wiekszosc programow pracujacych w jQuery wymaga podjecia trzech podstawowych krokow; zaznaczenia elementu na stronie, podlaczenia do nich odpowiedniej procedury obslugi zdarzenia oraz podania czynnosci wykonywanych w odpowiedzi na zaistnienie tego zdarzenia.
+        <h3 id="1">Efekty biblioteki jQuery</h3>
+        <p>Czestymi zadaniami biblioteki jQuery, sa efekty wizualne, ktorych uzywa sie podobnie do pozostalych elementow javascriptu. Nalezy wiec najpierw wybrac elementy na stronie uzywajac metod jQuery. Nastepnie podac funkcje ktorej chcemy uzyc.<br />
+        Ale kazda funkcja wizualna moze przyjmowac dodatkowe dwa argumenty. Czas dzialania funkcji oraz funkcje zwrotne (collback funkction).<br />
+        Tempo mozna okreslic podajac czas wyrazony w milisekundach, badz przez ustalone wartosci: slow - 600, normal - 400 oraz fast - 200.
+        </p>
+        <h3 id="2">Podstawowe ukrywanie i wyswietlanie.</h3>
+    
+        <ul>Biblioteka Jquery udostepnia trzy podstawowe funkcje:
+          <li><code class="funkction">show()</code> wyswietla element niezwlocznie jesli niejest podany czas animacji. Natomiast w przeciwnym wypadku tworzy animacje powoli wyswietlajaca element od jego gornego lewego naroznika do dolnego prawego.</li>
+          <li><code class="funkction">hide()</code> dziala w identyczny sposob co powyzsza ale w odwrotnym kierunku.</li>
+          <li><code class="funkction">toggle()</code> funkcja ta zmienia stan elementu naprzemienne go ukrywajac i wyswietlajac po wywolaniu.</li>
+        </ul>
+        </p>
+        <h3 id="3">Wygaszanie oraz rozjasnianie.</h3>
+        <ul>
+          <li><code class="funkction">fadeIn()</code> Funkcja stopniowy wyswietla element. Najpierw nadaje mu obszar na stronie poczym stopniowo wyswietla go.</li>
+          <li><code class="funkction">fadeOut()</code> Ta funkcja spowoduje ze nasz element stanie sie coraz mniej widoczny az w koncu zniknie.</li>
+          <li><code class="funkction">fadeToggle()</code> Ta funkcja laczy obie poprzednie. Jest uzywana do latwego wyswietlania elementu z uzyciem jednego przycisku.</li>
+          <li><code class="funkction">fadeTo()</code> Funkcja zmienia tylko przezroczystosc elementu. W tej funkcji musimy podac pzezroczystosc w przedziale od 0 do 1 oraz szybkosc animacji. Funkcja dziala niezaleznie od tego czy element jest widoczny czy nie.</li>
+        </ul>
+        <h3 id="4">Przesuwanie elementow</h3>
+        <ul>Jezeli chcemy wiekszej ilosci ciekowych efektow, mozemy skozystac funkcji wysuwania i wsuwania elementow na strone
+          <li id="nadol"><code class="funkction">slideDown()</code> funkcja sprawia, ze najpierw element niewidoczny jest wsuwany na strone. Najpierw pojawia sie jego gorna czesci a nastepnie reszta zawartosc strony jest przesuwana w dol, po czym jest wyswietlana jego zawartosc.
+          <div id="slideDown">
+          &nbsp;<code class="script">$('#button').click(function(){<br />
+          &nbsp;&nbsp;$('#elementDocelowy').slideDown(1500)<br />
+          &nbsp;});<br /></code>
+          </div>
+          </li>
+          <li id="gora"><code class="funkction">slideUp()</code>To samo jak wyzej tylko w odwrotnym kierunku.
+          <div id="slideUp">
+          &nbsp;<code class="script">$('#buton').click(function(){<br/>
+          &nbsp;$('#elementDocelowy').slideUp(1500)<br />
+          &nbsp;});<br /></code>
+          </div>
+          </li>
+          <li id="slideToggleOpis"><code class="funkction">slideToggle()</code> natomiast funkcja naprzemiennie wykonuje powyzsze.
+          <div id="slideToggle"><code class="script">
+          &nbsp;$('#button').click(function(){<br />
+          &nbsp;&nbsp;$('elementDocelowy').slideToggle(czas)<br />
+          &nbsp;});<br /></code>
+          </div>
+          </li>
+        </ul>
+        <h3>Przyklad wysuwanego formularza</h3>
+        <div id="formularz">
+          <p id="form"><!--img src="../../images/open.png"-->Formularz logowania</p>
+          <div id="content">
+          <fieldset>
+            <legend>Formularz.</legend>
+            <form>
+            <p>
+            <label for="username">Użytkownik:</label>
+            <input type="text" name="username" id="username">
+            </p>
+            <p>
+            <label for="password">Hasło:</label>
+            <input type="text" name="password" id="password">
+            </p>
+            <p class="button">
+            <input type="submit" name="button" id="button" value="Loguj" >
+            </p>
+            </form>
+          </fieldset>
+          </div>
+        </div>
+       </article>
+
+      <article class="post">
+        <header>
+          <h2>Animacje</h2>
+        </header>
+        <p>
+        <aside><p><strong>Uwaga:</strong>Jesli chcemy animowac polozenie elementow uzywajac wlasciwosci left, right, top oraz bottm, konieczne bedzie przypisanie jego wlasciwosci CSS position wrtosci absolute lub relative.</p></aside>
+          Korzystajac z funkcji <code class="funkction">animate()</code>, mozna animowac kazda dowolna wlasciwosc CSS akceptujaca wartosci liczbowe. Aby skozystac z funkcji nalezy jako argument przekazac literal obiektowy zawierajacy liste wlasciwosci CSS, ktore maja byc animowane, oraz ich wartosci np.:<br/>
+          <code class="script">
+          &nbsp;$('element_animowany')</code>.<code class="funkction">animate(</code><code class="script"><br/>
+          &nbsp;&nbsp;{<br/>
+          &nbsp;&nbsp;&nbsp;left: '650px',<br />
+          &nbsp;&nbsp;&nbsp;opacity: 0.5,<br />
+          &nbsp;&nbsp;&nbsp;fontSize: '24px'<br />
+          &nbsp;&nbsp;},<br />
+          &nbsp;&nbsp;1500<br /></code><code class="funkction">
+          &nbsp;);</code><br />
+          Ostatni argument w tym przykladzie jest czasem trwania animacji.
+        </p>
+
+        <p>
+          Istnieje takze mozliwosc okreslenia docelowych wartosci na podstawie biezacych np:<br />
+          <code class="script">
+          &nbsp;$('wartosc_animowana').click(function(){<br>
+          &nbsp;&nbsp;$(this)</code><code class="funkction">.animate(</code><code class="script"><br>
+          &nbsp;&nbsp;&nbsp;{<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;left: '+=50px'
+          &nbsp;&nbsp;&nbsp;},<br>
+          &nbsp;&nbsp;&nbsp;1000</code><code class="funkction">);</code><code class="script"><br>
+          &nbsp;});</code><br>
+        </p>
+        <h3>Tempo  animacji</h3>
+        <p>Wszystkie funkcjie JQuery tworzace efekty wizualne pozwalaja na podanie argumentu tempa animacji.
+        Biblioteka udostepnia dwie metody okresalnia tempa animacji (ang. easing): <code>linear</code> oraz <code>swing</code>.
+        Metoda linear jest stalym tempem animacji, natomiast swing zmiennym.<br/>
+        Argument tempa animacji jest podawany po argumencjie czsu trwania animacji.
+        </p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Wykonywanie operacji po zakonczeniu efektu.</h2>
+        </header>
+        <p>Aby uzyskac kolejnosc efektow nalezy uzyc funkcji zwrotnych. Zazwyczaj funkcja taka jest przekazywana do funkcji pierwszej jako argument drugi badz trzci np:
+        <code class="script"><br>
+        &nbsp;$('photo')</code><code class="funkction">.fadeIn(</code><code class="scrit">1000, function(){<br>
+        &nbsp;&nbsp;$('caption')</code><code class="funkction">.fadeIn(1000);</code><code class="script"><br>
+        &nbsp;});</code><br/></p>
+        <p>Dodatkowa funkcja zwrotna jest <code class="funkction">delay(czas)</code>. Powoduje ona odczekanie okreslonego czasu przed rozpoczeciem kolejnego efektu zapisanego w kolejce np:<br>
+        <code class="script">$('photo').fadeIn(1000)</code><code class="funkction">.delay(10000)</code><code class="script">.fadeOut(250);
+        </code></p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Przyklad animowany pasek ze zdjeciami.</h2>
+        </header>
+        <p>Wywołanie funkcji stop() powoduje zakończenie wszelkich animacji wyko-
+nywanych na elemencie &nlpt;div> przed rozpoczęciem kolejnej i nie dopuszcza do
+umieszczenia w kolejce większej liczby animacji.<p>
+        <div id="pokaz">
+          <p class="pierwsza">Tu powinien  znajadowac sie jakis obrazek ale nastapi to zaraz</p>
+          <img src="../../images/small/purple_h.jpg" class="druga">
+          <img src="../../images/small/blue_h.jpg" class="trzecia">
+          <img src="../../images/small/rails.png" class="czwarta">
+        </div>
+      </article>
+            
+    </section>
+
+
+    <!-- Sekcja nawigacyjna  boczna -->
+    <section id="site_bar">
+      <h3>Przyklady</h3>
+      <nav>
+        <ul>
+          <li><a href="show.html">metoda show()</a></li>
+          <li><a href="new_input_form/index.html">Describing Data with New Input Fields</a></li>
+          <li><a href="profile/show.html">In-Place Editing with contenteditable<br />
+          Musze tu wrocic z znajomoscia jquery</a></li>
+          <li><a href="user_interfaces_CSS3/index.html">Making Better User Interfaces with CSS3</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+          <li><a href="">Februar 2017</a></li>
+        </ul>
+      </nav>
+
+
+
+  </body>
+</html>

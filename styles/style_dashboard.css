@@ -70,7 +70,7 @@ section#site_bar h3 {
 	padding-left: 10px;
 }
 .post h3 {
-	background-color: #899AAB;
+	background-color: #7EE88A;
 }
 
 /* clear floats on the footer to sits it at bottom of the page */
@@ -121,4 +121,29 @@ div {
 }
 div ul li {
 	display: block;
+}
+
+
+/* Style dla nimowanego paska bocznego */
+#dashboard {
+	width: 110px;
+	background-color: rgb(255,211,224);
+	padding: 20px 20px 0 20px;
+	position: absolute;
+	/* na poczatku pasek jest poza prezegladarka */
+	left: -92px;
+	z-index: 100;
+}
+#dashboard img {
+	margin-bottom: 20px;
+	border: 1px solid rgb(0,0,0);
+}/* koniec stylow dla paska bocznego */
+h2.wskazowka_h {
+	background-color: yellow;
+}
+p.wskazowka {
+	display: block;
+	background-color: #73AFEB;
+	border: 1px solid black;
+	border-radius: 10px;
 }

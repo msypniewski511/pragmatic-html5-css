@@ -12,10 +12,10 @@
     		$('.post header').click(function(){
     			i = (i * (-1));
     			if(i<0){
-    				$(this).next('.answer').hide();
+    				$(this).next('.answer').fadeOut(1000);
     				//$('.answer').hide();
     			}else {
-    				$(this).next('.answer').show();
+    				$(this).next('.answer').fadeIn(1000);
     				//$('.answer').show();
     			}
     			

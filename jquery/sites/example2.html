@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>1 przyklad</title>
+    <link type="text/css" rel="stylesheet" href="../../styles/style_java.css">
+    <script src="../scripts/jquery-3.1.1.min.js"></script>
+    <script>
+      $('document').ready(function(){
+        $('#login').hide();
+        $('#open').click(function(){
+          $('#login').slideToggle(300);
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+       <!-- Begining of HEADER -->
+    <header id="site_header">
+      <h1>Moja strona TESTOWA HTML5 CSS3</h1>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="/">Latest Post</a></li>
+          <li><a href="../index.html">Javascript</a></li>
+          <li><a href="">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+    
+
+    <!-- Main content -->
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Formularz logowania</h2>
+        </header>
+        <p>W tym przykładzie nabierzesz nieco praktyki w stosowaniu efektów wizualnych udostępnianych przez bibliotekę jQuery; utworzysz popularny element interfejsu użytkownika, czyli panel, który się wysuwa i chowa po kliknięciu myszą odpowiedniego elementu strony. Zasada działania tego przykładu jest prosta:<br />
+        <ol>
+        <li><strong>Pobierasz akapit zawierający nagłówek "Formularz logowania".</strong> Pamiętasz zapewne, że znaczna część programów jQuery rozpoczyna się od pobrania odpowiednich elementów strony. W tym przypadku interesuje nas akapitzawierający słowa "Formularz logowania", które użytkownicy będą klikali.
+        </li>
+        <li><strong>Dodajesz do akapitu procedurę obsługi zdarzeń <code>click.</code></strong> JavaScript nie zapewnia interaktywności bez wykorzystania zdarzeń: aby coś się stło, użytkownik musi rozpocząć interakcję z elementami strony (w naszym przypadku jest to akapit tekstu).
+        </li>
+        <li><strong>Przełączasz widoczność formularza.</strong> Poprzednie dwie czynności to jedynie przypomnienie (choć niezbędne w tak wielu programach pisanych z wykorzystaniem biblioteki jQuery). Jednak to właśnie w ramach tej ostatniej czynności wykorzystasz efekty jQuery opisywane w tym rozdziale. Możemy sprawić, by formularz pojawił się natychmiast (za pomocą funkcji <code>show()</code>), możemy wsunąć go (przy użyciu funkcji <code>slideDown()</code>) bądź stopniowo wyświetlić, gdy spowodujemy zmianę jego przezroczystość (z wykorzystaniem funkcji <code>fadeIn()</code>).
+        </li>
+        </ol>
+        </p>
+      </article>
+      <article class="post">
+        <header>
+          <h2>Tworzenie kodu</h2>
+        </header>
+        <p>
+        <h3>Kliknij pusty wiersz widoczny poniżej funkcji <code>$(document).ready()</code> i wpisz w nim <code class="script">$('#open')</code>.</h3>
+        <p>Interesujący nas tekst jest umieszczony wewnątrz akapitu o identyfikatorze open — &lt;p id="open">Formularz logowania&lt;/p>. A zatem wpisane wywołanie jQuery spowoduje pobranie tego akapitu. Kolejnym zadaniem będzie dodanie do niego procedury obsługi zdarzeń.<br />
+        <h3>Dodaj kod wyróżniony w poniższym przykładzie pogrubioną czcionką, tak by miał następującą postać:</h3>
+        <code class="script">$(document).ready(function() {<br />
+        $('#open').click(function() {<br />
+        }); // koniec funkcji click<br />
+        }); // koniec funkcji ready<br /></code>
+        Powyższy kod dodaje procedurę obsługi zdarzeń <code>click</code>, a zatem, za każdym razem gdy użytkownik kliknie akapit, coś się stanie. W naszym przypadku kliknięcie powinno powodować wyświetlenie formularza, który zniknie po ponownym kliknięciu; następne kliknięcie ponownie powinno go wyświetlić i tak w dalej. Innym słowy, formularz ma być naprzemiennie wyświetlany i ukrywany. Biblioteka jQuery udostępnia trzy funkcje zapewniające takie możliwości:<br> <code class="script">toggle(),<br />
+        fadeToggle()<br />
+        slideToggle()<br /></code>.
+        Jedyna różnica pomiędzy nimi polega na sposobie wyświetlania i ukrywania wybranego elementu.<br />
+        <h3><strong>Kliknij pusty wiersz wewnątrz funkcji click() i wpisz w nim:</strong></h3>
+        <code class="script">$('#login form').slideToggle(300);</code><br />
+        Ten kod powoduje pobranie formularza oraz wsunięcie go na stronę, jeśli nie jest widoczny, bądź jego ponowne wysunięcie i ukrycie. Kolejną czynnością będzie zmiana klasy używanej w akapicie, dzięki czemu akapit tekstu zmieni wygląd.<br />
+        <h3><strong>Dodaj poniższy, wyróżniony pogrubieniem fragment kodu, by końcowy skrypt wyglądał tak jak ten:</strong></h3>
+        <code class="script">$(document).ready(function() {<br />
+        $('#open').click(function() {<br />
+        $('#login form').slideToggle(300);<br />
+        $(this).toggleClass('close');<br />
+        }); // koniec funkcji click<br />
+        }); // koniec funkcji ready<br /></code>
+        Wewnątrz procedury obsługi zdarzeń można korzystać z wyrażenia <code>$(this)</code>, by odwołać się do elementu odpowiadającego na zdarzenie. W naszym przykładzie <code>$(this)</code> odwołuje się do akapitu klikniętego przez użytkownika — pobranego w 2. wierszu przy użyciu wywołania <code>$('#open')</code>. Funkcja <code>toggleClass()</code> dodaje lub usuwa klasę z elementu. Podobnie jak wszystkie inne funkcje przełączające, także i <code>toggleClass()</code> dodaje podaną nazwę klasy, jeśli jeszcze nie jest używana w wybranym elemencie, bądź też usuwa ją, kiedy aktualnie jest stosowana. W naszym przykładzie korzystamy z klasy o nazwie <code>close</code>, zdefiniowanej w arkuszu stylów umieszczonym na stronie. (Znajdziesz go w kodzie strony, wewnątrz sekcji &lt;head>).
+        <br />
+        A co zrobić, gdy będziesz chciał zastosować dwa różne efekty wizualne? Chcesz na przykład wysuwać formularz podczas jego wyświetlania, a wygaszać podczas ukrywania. W takim przypadku kod przedstawiony w kroku 5. powyższej listy nie spełni oczekiwań, gdyż funkcja click() nie zapewnia możliwości stosowania i wyboru jednej z dwóch różnych akcji. Niemniej jednak, jQuery udostępnia także specjalne zdarzenie — <code>toggle()</code> — opracowane właśnie z myślą o takich sytuacjach. Nie należy go mylić z wizualnym efektem o tej samej nazwie — <code>toggle()</code> — który powoduje naprzemienne pojawianie się i ukrywanie elementu. Zdarzenie <code>toggle()</code> pozwala naprzemiennie wykonywać dwa różne fragmenty kodu podczas parzystych oraz nieparzystych kliknięć. A zatem podczas pierwszego kliknięcia formularz ma się pojawić, a podczas drugiego — zniknąć. Aby formularz został wsunięty na stronę, a następnie wygaszony podczas kolejnego kliknięcia, powinieneś użyć następującego kodu:<br>
+        <code class="script">$(document).ready(function() {<br />
+        $('#open').toggle(<br />
+        function() {<br />
+        $('#login form').slideDown(300);<br />
+        $(this).addClass('close');<br />
+        },<br />
+        function() {<br />
+        $('#login form').fadeOut(600);<br />
+        $(this).removeClass('close');<br />
+        }<br />
+        ); // koniec funkcji toggle<br />
+        }); // koniec funkcji ready<br />
+        </code>
+        </p>
+        </p>
+      </article>
+    </section>
+    <section id="pledge">
+    <br />
+      <p id="open">
+      Zaloguj sie
+      </p>
+      <div id="login">
+        <fieldset>
+          <legend>Zaloguj sie</legend>
+          <form method="post" action="../index.html">
+            <label for="name">Name</label>
+            <input type="text" name="name" autofocus id="name">
+            <label for="password">Haslo</label>
+            <input type="password" name="password">
+            <input type="submit" value="Submit">
+          </form>
+      </fieldset>
+      </div>
+    </section>
+
+    <!-- Sekcja boczna -->
+    <section id="site_bar">
+      <nav>
+        <h3>Artykuly</h3>
+        <ul>
+          <li><a href="/translator.html">Translator</a></li>
+          <li><a href="/mod.html">Podstawowe informacje o modyfikowaniu stron WWW</a></li>
+          <li><a href="/exampl.html">Przyklad</a></li>
+          <li><a href="/example.html">Rozwijane menu</a></li>
+          <li><a href="/example1.html">Przykład — jednostronicowa lista FAQ</a></li>
+          <li><a href="/example2.html">Przykład — wysuwany formularz logowania</a></li>
+          <li><a href="sites/3.html">Dołączanie zewnętrznych plików JavaScript</a></li>
+        </ul>
+      </nav>
+    </section><!-- End of sidebar -->
+
+
+
+    <!-- Main site footer -->
+    <footer id="site_footer">
+      <p>&copy; 2017 Maciej Sypniewski</p>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Startowa</a></li>
+          <li><a href="index.html">Back</a></li>
+          <li><a href="http://www.w3schools.com/jquery/">JQuery Tutorial</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <br />
+          <li><a href="http://learn.jquery.com/">JQuery learn</a></li>
+          <li><a href="http://www.w3schools.com/">w3scools.com</a></li>
+          <li><a href="https://www.tutorialspoint.com/">tutorialspoint</a></li>
+          <li><a href="https://developer.mozilla.org/pl/">Mozilla Developer Network</a></li>
+        </ul>
+        </nav>
+    </footer><!-- End of main footer -->
+  </body>
+</html>

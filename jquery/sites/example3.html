@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Przyklad</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../styles/style_dashboard.css">
+    <script src="../scripts/jquery-3.1.1.min.js"></script>
+    <script src="../scripts/jquery.easing.1.3.js"></script>
+    <script src="../scripts/jquery.color.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#dashboard').hover(
+          function(){
+            $(this).animate(
+            {
+              left: '0',
+              backgroundColor: 'rgb(255,255,255)'
+            }
+            ); // koniec funkcji animate
+          },
+          function(){
+
+          }
+        );// koniec funkcji hover
+      }); // koniec funkcji ready
+    </script>
+  </head>
+    <body>
+    <!-- Pojemnik div dla panelu bocznego -->
+      <div id="dashboard">
+        <img src="../_images/small/blue_h.jpg" width="70" height="70" alt="blue">
+        <img src="../_images/small/green_h.jpg" width="70" height="70" alt="green">
+        <img src="../_images/small/orange_h.jpg" width="70" height="70" alt="orange">
+        <img src="../_images/small/purple_h.jpg" width="70" height="70" alt="purple">
+        <img src="../_images/small/red_h.jpg" width="70" height="70" alt="red">
+      <img src="../_images/small/yellow_h.jpg" width="70" height="70" alt="yellow">
+    </div><!-- koniec pojemnika bocznego -->
+
+
+  	<header id="site_header">
+      <h1>Wysuwany pasek ze zdjęciami</h1>
+      <p>Umieść wskaźnik myszy na różowym pasku widocznym wzdłuż lewej krawędzi strony.</p>
+      <nav><!-- Begining of navigation panel -->
+        <ul>
+          <li><a href="../../index.html">Startowa</a></li>
+          <li><a href="../index.html">Javascript</a></li>
+          <li><a href="../jquery.html">Jquery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- End of navigation panel -->
+    </header><!-- End of Header -->
+
+    <section id="posts">
+    <!-- Articles -->
+      <article class="post">
+        <header>
+          <h2>Animowany pasek ze zdjęciami</h2>
+        </header>
+        <p>W tym przykładzie użyjemy funkcji <code class="script">animate()</code> do przesunięcia znacznika &lt;div>, który początkowo jest ukryty poza lewą krawędzią strony. Znacznik ten jest <code>pozycjonowany w sposób bezwzględny</code>, a zatem większa część jego obszaru pozostaje niewidoczna — ukryta za lewą krawędzią strony i okna przeglądarki. Kiedy użytkownik umieści wskaźnik myszy w widocznym obszarze znacznika &lt;div>, zostanie on wysunięty w prawo, tak by stał się w całości widoczny. Aby cały efekt był bardziej zabawny, zastosujemy dodatkowo wtyczkę pozwalającą na animowanie koloru tła oraz kilka różnych sposobów określania tempa animacji.
+        </p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Opis rozwiązania</h2>
+        </header>
+        <p>
+        Podstawowe zadania, jakie należy wykonać, są raczej proste. Oto one.<br />
+        <ol>
+          <li><h3>Pobranie znacznika <code>&lt;div>.</code></h3>
+          Pamiętasz zapewne, że bardzo wiele programów używających biblioteki jQuery zaczyna działanie od pobrania odpowiednich elementów strony — w tym przypadku będzie to znacznik <strong>&lt;div></strong>, który użytkownik ma wskazać myszą.
+          </li>
+          <li><h3>Dołączenie procedury obsługi zdarzeń <strong>hover.</strong></h3>
+          Zdarzenie <code>hover</code> jest specjalną funkcją jQuery, a nie faktycznym zdarzeniem języka JavaScript. Pozawala ono na wykonywanie pierwszego zbioru czynności, w momencie gdy użytkownik wskaże element myszą, oraz drugiego, gdy użytkownik usunie wskaźnik myszy z obszaru elementu (w rzeczywistości zdarzenie to jest kombinacją zdarzeń <code class="script">mouseOver oraz mouseOut</code>.
+          </li>
+          <li><h3>Dodanie wywołania funkcji <strong>animate()</strong> w procedurze obsługi zdarzenia <strong>mouseover</strong>.</h3>
+          Kiedy użytkownik wskaże znacznik &lt;div> myszą, przesuniesz go w prawo, tak że pojawi się w całości, wysuwając się zza lewej krawędzi okna przeglądarki. Dodatkowo dodasz animację koloru tła znacznika. Dodanie kolejnego wywołania funkcji <code class="script">animate()</code> w ramach obsługi zdarzenia <code class="script">mouseout</code>. Kiedy użytkownik usunie wskaźnik myszy z obszaru znacznika, przesuniesz go z powrotem w początkowe położenie i zmienisz kolor tła na oryginalny.
+          </li>
+          </ol>
+        </p>
+      </article>
+
+      <article class="post">
+        <header>
+          <h2>Kod rozwiązania</h2>
+        </header>
+        <ol>
+          <li><h3>Mamy zamiar animować kolor tła elementu oraz wykorzystać kilka interesujących metod określania tempa animacji,</h3> konieczne jest także dołączenie dwóch dodatkowych wtyczek jQuery, takich jak <code>color oraz easing.</code>
+          </li>
+          <li><h3>Kliknij pusty wiersz umieszczony poniżej pierwszego znacznika &lt;script></h3> i dodaj wyróżniony pogrubieniem kod przedstawiony poniżej:<br />
+          <code>&lt;script src="../_js/jquery-1.6.3.min.js">&lt;/script><br />
+          &lt;script src="../_js/jquery.easing.1.3.js">&lt;/script><br />
+          &lt;script src="../_js/jquery.color.js">&lt;/script><br /></code>
+          Wtyczki jQuery (o których dowiesz się znacznie więcej w następnym rozdziale) są zwykłymi zewnętrznymi plikami JavaScript, rozszerzającymi możliwości biblioteki i często pozwalają dodawać do tworzonych witryn złożone efekty lub możliwości funkcjonalne bez konieczności (samodzielnego) pisania rozbudowanego kodu.<br /> Kolejnym zadaniem będzie wybranie odpowiedniego znacznika &lt;div> i wywołanie funkcji <code class="script">hover()</code>.
+          </li>
+          <li><h3>Kliknij pusty wiersz umieszczony wewnątrz funkcji <code>$(document).ready()</code></h3>
+          i wpisz w nim <code class="script">$('#dashboard').hover(); // koniec funkcji hover</code>, tak by kod wyglądał tak jak przedstawiony poniżej:<br /><code class="script">
+          &nbsp;&nbsp;$(document).ready(function() {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;$('#dashboard').hover(); // koniec funkcji hover<br />
+          &nbsp;&nbsp;}); // koniec funkcji ready<br /></code>
+          Wywołanie <code class="script">$('#dashboard')</code> powoduje pobranie znacznika &lt;div> (o identyfikatorze dashboard). Funkcja <code class="script">hover()</code> wymaga podania dwóch argumentów — dwóch funkcji anonimowych — opisujących, co należy zrobić w momencie umieszczenia wskaźnika myszy w obszarze elementu oraz w momencie jego usunięcia. Zamiast wpisywać cały kod za jednym razem, utworzymy go etapami. Najpierw dodamy samą funkcję <code class="script">hover()</code>, a następnie dwie, początkowo puste funkcje anonimowe. Takie rozwiązanie jest bardzo przydatne, bo kiedy nie zachowamy należytej uwagi, ogromna liczba zagnieżdżonych nawiasów, nawiasów klamrowych, przecinków i średników może być przytłaczająca.
+          </li>
+          <li><h3>Kliknij pomiędzy nawiasami w wywołaniu funkcji <code>hover()</code> i dodaj dwie puste funkcje anonimowe:</h3><code class="script">
+          &nbsp;&nbsp;$(document).ready(function() {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;$('#dashboard').hover(<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;); // koniec funkcji hover<br />
+          &nbsp;&nbsp;}); // koniec funkcji read</code><br />
+          Wewnątrz wywołania funkcji <code class="script">hover()</code> umieściliśmy dwie puste funkcje anonimowe, wewnątrz których wpiszemy pozostały kod programu. Zaczniemy od pierwszej, określającej, co program ma zrobić, gdy użytkownik wskaże element myszą. Drugą funkcję anonimową uzupełnimy nieco później..<br />
+          <hr />
+          </li>
+          <p class="wskazowka">
+          <h2 class="wskazowka_h">Wskazówka:</h2>Dobrym pomysłem jest możliwie jak najczęstsze testowanie kodu, by upewnić się, że nie zawiera żadnych prostych błędów typograficznych. W kroku 4., w pierwszej funkcji anonimowej można wpisać na przykład alert('mouseOver') , a w drugiej — alert('mouseOut') , a następnie wyświetlić stronę w przeglądarce. W takim przypadku zarówno po wskazaniu znacznika &lt;div> myszą, jak i po usunięciu jej wskaźnika z obszaru elementu powinny zostać wyświetlone informacyjne okienka dialogowe. Jeśli w oknie przeglądarki nie zostaną wyświetlone żadne okienka informacyjne, będzie to oznaczało, że gdzieś popełniłeś błąd. W takim przypadku ponownie sprawdź kod strony.</p>
+          <hr />
+          <li><h3>Wewnątrz pierwszej funkcji anonimowej wpisz: <code>$(this).animate(); // koniec funkcji animate</code>.</h3>
+          Wyrażenie <code class="script">$(this)</code> używane wewnątrz procedur obsługi zdarzeń odwołuje się do elementu, z którym procedura została skojarzona. W tym przypadku wyrażenie to odwołuje się do znacznika &lt;div> o identyfikatorze <code>dashboard</code>. Innymi słowy, przesuwanie wskaźnika myszy w obszarze elementu także będzie powodować jego animację.
+          </li>
+          <li><h3>Dodaj literał obiektowy określający właściwości CSS, które chcesz animować:</h3><code class="script">
+          &nbsp;&nbsp;$('#dashboard').hover(<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;function() {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).animate(<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left: '0',<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor: 'rgb(255,255,255)'<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;); // koniec funkcji animate<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;},<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;function() {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;); // koniec funkcji hover<br />
+          &nbsp;}); // koniec funkcji ready</code><br />
+Pierwszym argumentem wywołania funkcji animate() jest literał obiektowy
+(patrz strona 158) określający animowane właściwości CSS. W naszym przy-
+padku aktualna wartość właściwości left znacznika <div> wynosi -92px ,
+co oznacza, że jego znacząca część jest ukryta poza lewą krawędzią okna przeglą-
+darki. Jeśli w ramach animacji zmienimy wartość tej właściwości na 0 , w efek-
+cie przesuniemy element w prawo i w całości wyświetlimy go na stronie. Po-
+dobnie, dzięki zastosowaniu wtyczki color, możemy płynnie zmienić kolor tła
+tego znacznika z niebieskiego na biały. Kolejną czynnością będzie określenie
+czasu trwania animacji.
+Za zamykającym nawiasem klamrowym } wpisz przecinek, naciśnij klawisz
+Enter i wpisz 500 .
+Przecinek oznacza koniec pierwszego argumentu przekazywanego w wywołaniu
+funkcji animate() , natomiast liczba 500 określa czas trwania animacji (wyra-
+żony w milisekundach). Teraz możesz podać metodę określania tempa animacji.
+8. Za cyfrą 500 wpisz przecinek, naciśnij klawisz Enter i wpisz 'easeInSine' ,
+tak by kod wyglądał tak samo jak przedstawiony poniżej:
+$(document).ready(function() {
+$('#dashboard').hover(
+function() {
+$(this).animate(
+{
+left: '0',
+backgroundColor: 'rgb(255,255,255)'
+},
+500,
+'easeInSine'
+); // koniec funkcji animate
+},
+function() {
+}
+); // koniec funkcji hover
+}); // koniec funkcji ready
+Ostatni argument wywołania funkcji animate() — w naszym przypadku ma on
+postać 'easeInSine' — nakazuje zastosować metodę określania tempa animacji,
+która sprawia, że animacja zaczyna się dosyć wolno, a następnie przyspiesza.
+Zapisz plik, wyświetl stronę w przeglądarce i wskaż znacznik <div> myszą.
+Znacznik powinien przesunąć się w prawo i w całości pojawić na stronie. Jeśli
+tak się nie stanie, spróbuj określić źródło problemów, posługując się technikami
+opisanymi na stronie 48. Oczywiście, kiedy usuniesz wskaźnik myszy z obsza-
+ru elementu, nic się nie stanie. Wciąż musisz jeszcze uzupełnić kod drugiej
+funkcji anonimowej.
+10. W drugiej funkcji anonimowej umieść następujący fragment kodu:
+$(this).animate(
+{
+left: '-92px',
+backgroundColor: 'rgb(110,138,195)'
+},
+1500,
+'easeOutBounce'
+); // koniec funkcji animate
+Powyższy kod odwraca zmiany wprowadzone przez pierwszą animację — prze-
+suwa element w lewo, poza krawędź okna przeglądarki i ponownie zmienia jego
+tło na niebieskie. W tym przypadku animacja trwa nieco dłużej — półtorej, a nie
+pół sekundy — oraz używamy innej metody określania tempa.
+Zapisz plik, wyświetl stronę w przeglądarce i wskaż znacznik <div> myszą.
+Znacznik powinien przesunąć się w prawo i w całości pojawić na stronie. Jeśli
+tak się nie stanie, spróbuj określić źródło problemów, posługując się technikami
+opisanymi na stronie 48. Oczywiście, kiedy usuniesz wskaźnik myszy z obsza-
+ru elementu, nic się nie stanie. Wciąż musisz jeszcze uzupełnić kod drugiej
+funkcji anonimowej.
+10. W drugiej funkcji anonimowej umieść następujący fragment kodu:
+$(this).animate(
+{
+left: '-92px',
+backgroundColor: 'rgb(110,138,195)'
+},
+1500,
+'easeOutBounce'
+); // koniec funkcji animate
+Powyższy kod odwraca zmiany wprowadzone przez pierwszą animację — prze-
+suwa element w lewo, poza krawędź okna przeglądarki i ponownie zmienia jego
+tło na niebieskie. W tym przypadku animacja trwa nieco dłużej — półtorej, a nie
+pół sekundy — oraz używamy innej metody określania tempa.
+
+Zapisz plik. Wyświetl go w przeglądarce, wskaż znacznik <div> myszą, a na-
+stępnie usuń jej wskaźnik z obszaru elementu.
+Jak się przekonasz, znacznik <div> jest przesuwany na stronę, a następnie z niej
+wysuwany. Jeśli jednak spróbujesz kilkakrotnie i szybko umieścić wskaźnik my-
+szy w jego obszarze, a następnie go usunąć, zauważysz pewne dziwne zachowanie:
+znacznik będzie wsuwany na stronę oraz z niej wysuwany na długo po tym, jak
+przestałeś poruszać wskaźnikiem myszy. Przyczyną tego problemu jest sposób,
+w jaki jQuery kolejkuje wykonywane animacje. Zgodnie z informacjami
+podanymi na stronie 211, wszelkie animacje operujące na pewnym elemencie
+trafiają do specjalnej, powiązanej z nim kolejki. Jeśli na przykład chcemy stop-
+niowo wyświetlić element, a następnie go wygasić, jQuery wykona każdy z tych
+efektów w kolejności, jeden po drugim.
+Problem, jaki mogłeś zaobserwować, polegał na tym, że wraz z każdym umiesz-
+czeniem wskaźnika myszy w obszarze znacznika oraz jego usunięciem z tego
+obszaru do kolejki była dodawana następna animacja. A zatem wielokrotne,
+szybkie powtarzanie tych czynności doprowadziło do utworzenia długiej listy
+efektów — wsunięcia znacznika na stronę, wysunięcia go poza nią, ponownego
+wsunięcia, i tak dalej — które biblioteka jQuery miała wykonać. Rozwiązaniem
+tego problemu jest przerwanie wykonywania wszelkich animacji znacznika przed
+rozpoczęciem kolejnej. Innymi słowy, jeśli umieścimy wskaźnik myszy w ob-
+szarze znacznika, który aktualnie jest w trakcie animacji, animację tę należy
+przerwać, a następnie rozpocząć kolejną — zgodnie ze sposobem obsługi zdarzenia
+mouseover . Na szczęście, biblioteka jQuery udostępnia funkcję, która pozwala
+na takie przerwanie aktualnie wykonywanej animacji; jest nią stop() .
+
+12. Dodaj wywołanie funkcji .stop() pomiędzy $(this) oraz .animate , we-
+wnątrz obu funkcji anonimowych. Uzupełniony, końcowy kod przykładu
+powinien wyglądać następująco:
+$(document).ready(function() {
+$('#dashboard').hover(
+function() {
+$(this).stop().animate(
+{
+left: '0',
+backgroundColor: 'rgb(255,255,255)'
+}
+500,
+'easeInSine'
+); // koniec funkcji animate
+},
+function() {
+$(this).stop().animate(
+{
+left: '-92px',
+backgroundColor: 'rgb(110,138,195)'
+},
+1500,
+'easeOutBounce'
+); // koniec funkcji animate
+}
+); // koniec funkcji hover
+}); // koniec funkcji ready
+Wywołanie funkcji stop() powoduje zakończenie wszelkich animacji wyko-
+nywanych na elemencie <div> przed rozpoczęciem kolejnej i nie dopuszcza do
+umieszczenia w kolejce większej liczby animacji.
+Zapisz stronę i spróbuj wyświetlić ją w przeglądarce. Pełną wersję tego przykładu
+możesz znaleźć w pliku complete_animate.html, w katalogu R06.
+
+      </article>
+      <article class="post">
+        <header>
+          <h2>Kod rozwiązania</h2>
+        </header>
+
+      </article>
+      <article class="post">
+        <header>
+          <h2>Kod rozwiązania</h2>
+        </header>
+
+      </article>
+      
+    </section>
+
+  </body>
+</html>
