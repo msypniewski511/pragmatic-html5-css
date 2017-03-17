@@ -16,8 +16,17 @@
     <![endif]-->
     <script src="../../scripts/jquery-3.1.1.min.js"></script>
     <script>
-    
+    var i = 1;
+    function toggleHtml(arg1, arg2){
+      if(i == 1){
+        i = i * ( -1);
+        return arg2;
+      }
+      i = i * ( -1);
+      return arg1
+    }
     $(document).ready(function(){
+
       /* :Przyklad panelu bocznego */
       $('#pokaz').hover(
         function(){
@@ -33,13 +42,23 @@
             left: "-100px"
           },
           1000);
+        });//Koniec panela bocznego
+
+      //Efekt rollover
+      $('.pierwsza').hover(
+        function(){
+          $(this).attr('src', '../../images/small/red_h.jpg');
+        },
+        function(){
+          $(this).attr('src', '../../images/small/red.jpg');
         });
 
       /*  Formularz logowania */
       $('#content').hide();
-      var message1 = "<img src='../../images/open.png'>";
       $('#form').click(function(){
         $('#content').slideToggle(500);
+        wynik = toggleHtml("<img src='../../images/open.png'>Formularz Logowania", "<img src='../../images/close.png'>Formularz Logowania");
+        $('#form').html(wynik);
       });
       /*Elementy slide */
       $('#slideDown').hide(0);
@@ -66,6 +85,10 @@
       });
       $('#4').click(function(){
         $('#4 + ul').toggle(1000)
+      });
+
+      $('p #test').click(function(){
+        $(this).hide();
       });
     });
     </script>
@@ -135,7 +158,7 @@
         </ul>
         <h3>Przyklad wysuwanego formularza</h3>
         <div id="formularz">
-          <p id="form"><!--img src="../../images/open.png"-->Formularz logowania</p>
+          <p id="form"><img src='../../images/open.png'>Formularz Logowania</p>
           <div id="content">
           <fieldset>
             <legend>Formularz.</legend>
@@ -206,26 +229,26 @@
         &nbsp;});</code><br/></p>
         <p>Dodatkowa funkcja zwrotna jest <code class="funkction">delay(czas)</code>. Powoduje ona odczekanie okreslonego czasu przed rozpoczeciem kolejnego efektu zapisanego w kolejce np:<br>
         <code class="script">$('photo').fadeIn(1000)</code><code class="funkction">.delay(10000)</code><code class="script">.fadeOut(250);
-        </code></p>
+        </code>
+        </p>
       </article>
 
       <article class="post">
         <header>
           <h2>Przyklad animowany pasek ze zdjeciami.</h2>
         </header>
-        <p>Wywołanie funkcji stop() powoduje zakończenie wszelkich animacji wyko-
-nywanych na elemencie &nlpt;div> przed rozpoczęciem kolejnej i nie dopuszcza do
-umieszczenia w kolejce większej liczby animacji.<p>
-        <div id="pokaz">
-          <p class="pierwsza">Tu powinien  znajadowac sie jakis obrazek ale nastapi to zaraz</p>
-          <img src="../../images/small/purple_h.jpg" class="druga">
-          <img src="../../images/small/blue_h.jpg" class="trzecia">
-          <img src="../../images/small/rails.png" class="czwarta">
-        </div>
-      </article>
-            
-    </section>
+        <p>Wywołanie funkcji stop() powoduje zakończenie wszelkich animacji wykonywanych na elemencie &nlpt;div> przed rozpoczęciem kolejnej i nie dopuszcza do umieszczenia w kolejce większej liczby animacji.
+        <p>
+      </article>        
+    </section><!-- Koniec sekcji glownej artykolow -->
 
+    <!-- Panel boczny -->
+    <div id="pokaz">
+      <img src="../../images/small/red.jpg" class="pierwsza">
+      <img src="../../images/small/purple_h.jpg" class="druga">
+      <img src="../../images/small/blue_h.jpg" class="trzecia">
+      <img src="../../images/small/rails.png" class="czwarta">
+    </div>
 
     <!-- Sekcja nawigacyjna  boczna -->
     <section id="site_bar">
@@ -246,6 +269,10 @@ umieszczenia w kolejce większej liczby animacji.<p>
         </ul>
       </nav>
 
+<p>1 punkt</p>
+<p>2 punkt</p>
+<p>3punkt</p>
+<p>4punkt</p>
 
 
   </body>

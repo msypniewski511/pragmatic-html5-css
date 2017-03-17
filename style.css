@@ -1,0 +1,42 @@
+h1 {
+	text-align: center;
+}
+h2 {
+	border-left: 20px;
+	padding-left: 40px;
+	border-bottom: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+hr {
+	clear: left;
+}
+#newslinks ul {
+	text-decoration: none;
+	border: 0;
+	padding: 0;
+}
+
+#newslinks li {
+	float: left;
+	list-style: none;
+	
+	padding-right: 20px;
+}
+#newslinks a {
+	display: block;
+	text-decoration: none;
+	border-width: 2px 2px 2px 2px;
+	background-color: gray;
+	border-style: solid;
+}
+#newslinks a .pierwszy {
+	border-right: 2px solid;
+
+}
+#newslinks a:hover {
+}
+div #headlines{
+	width: 100%;
+	border: 3px solid;
+}

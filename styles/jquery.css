@@ -105,7 +105,7 @@ p#form {
 	margin: 0;
 	cursor: pointer;
 	background-color: white;
-	background-image: url("/images/open.png");
+	background-image: url("../../images/open.png");
 	background-repeat: no-repeat;
 	background-position: left;
 
@@ -134,14 +134,9 @@ div#pokaz {
 	background-color: #7EE88A;
 	border: 1px solid;
 }
-p.pierwsza {
+img.pierwsza {
 	border: 2px solid;
-	margin: 5px;
-	margin-top: 20px;
-	padding: 2px;
-	background-image: url("../../images/rails.png");
-	background-repeat: no-repeat;
-	background-position: center;
+	margin: 10px auto 10px 15px;
 }
 img.druga {
 	border: 2px solid;

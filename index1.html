@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <title>Pragmatic HTML5 CSS3 - Wprowadzenie do biblioteki jQuery</title>
+    <script>
+    $(document).ready(function(){
+    	$('#newslinks a').click(function(){
+    		url = $(this).attr('href');
+    		
+    		
+    		$('#headlines').load(url);
+    		return false;
+    	});
+    });
+    </script>
+  </head>
+  <body>
+  <div id="body">
+    <h1>JavaScript</h1>
+    
+    <div id="main">
+    <h2>Doniesienia</h2>
+      <hr>
+      <ul id="newslinks">
+        <li><a href="index.html" class="pierwszy">Doniesienia dzisiejsze</a></li>
+        <li><a href="jquery/index.html">Doniesienia wczorajsze</a></li>
+        <li><a href="jquery/jquery.html">Z ostatniego tygodnia</a></li>
+      </ul>
+
+    </div>
+    <div id="headlines">
+        <!-- Strony -->
+    </div>
+  </div>
+  </body>
+</html>
